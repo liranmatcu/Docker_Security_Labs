@@ -1,1 +1,1 @@
-Store generated files such as certificates from this contain instance.
+Store generated files such as certificates from this container instance.
