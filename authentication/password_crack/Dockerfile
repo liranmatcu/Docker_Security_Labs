@@ -2,6 +2,7 @@ FROM fedora
 
 RUN dnf -y install john && \
 dnf -y install passwd && \
+dnf -y install wget && \
 dnf -y install vim
 
 RUN adduser user1
