@@ -1,12 +1,11 @@
 FROM alpine
 ENTRYPOINT ["/entrypoint.sh"]
-EXPOSE 22
-# COPY rootfs /
+EXPOSE 22 21
 COPY rootfs/entrypoint.sh /
 COPY rootfs/vsftpd.sh /usr/sbin/
 
-ENV FTP_USER=foo \
-    FTP_PASS=foo123 \
+ENV FTP_USER=ftp \
+    FTP_PASS=password \
     PASV_ADDRESS=eurekalabs.net \
     PASV_MIN=21100 \
     PASV_MAX=21110
@@ -36,3 +35,5 @@ RUN chmod +x /usr/sbin/vsftpd.sh
 
 # CMD /usr/sbin/vsftpd.sh
 # CMD /entrypoint.sh
+
+# COPY rootfs /
