@@ -1,6 +1,7 @@
 FROM alpine
-# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 22
+# COPY rootfs /
 COPY rootfs/entrypoint.sh /
 COPY rootfs/vsftpd.sh /usr/sbin/
 
@@ -30,8 +31,8 @@ RUN echo "local_enable=YES" >> /etc/vsftpd/vsftpd.conf \
   && echo "seccomp_sandbox=NO" >> /etc/vsftpd/vsftpd.conf \
   && sed -i "s/anonymous_enable=YES/anonymous_enable=NO/" /etc/vsftpd/vsftpd.conf
 
-RUN chmod +x /usr/sbin/vsftpd.sh
 RUN chmod +x /entrypoint.sh
+RUN chmod +x /usr/sbin/vsftpd.sh
 
-CMD /usr/sbin/vsftpd.sh
-CMD /entrypoint.sh
+# CMD /usr/sbin/vsftpd.sh
+# CMD /entrypoint.sh
