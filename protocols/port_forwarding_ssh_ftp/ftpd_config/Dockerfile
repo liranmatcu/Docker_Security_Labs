@@ -6,7 +6,7 @@ ENV FTP_USER=student \
     PASV_MIN=21100 \
     PASV_MAX=21110
 
-RUN apk update && apk upgrade && apk --update --no-cache add vsftpd
+RUN apk update && apk upgrade && apk --update --no-cache add vsftpd grep bash tcpdump
 
 RUN echo "local_enable=YES" >> /etc/vsftpd/vsftpd.conf \
   && echo "chroot_local_user=YES" >> /etc/vsftpd/vsftpd.conf \
