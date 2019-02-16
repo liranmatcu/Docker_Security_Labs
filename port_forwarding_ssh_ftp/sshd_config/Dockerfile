@@ -1,0 +1,9 @@
+FROM alpine:3.7
+ENTRYPOINT ["/entrypoint.sh"]
+EXPOSE 22
+COPY entrypoint.sh /
+
+
+RUN apk update && apk upgrade && apk add --no-cache openssh vsftpd bash && \
+  sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config && \
+  echo "root:password" | chpasswd 
