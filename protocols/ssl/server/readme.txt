@@ -1,1 +1,1 @@
-Store server certifcates and keys.
+Store server certificates and keys.
