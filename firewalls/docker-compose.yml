@@ -12,7 +12,7 @@ iptables:
   ports:
     - "8388:8388"
   environment:
-    - TCP_PORTS=22,80,443
+    - TCP_PORTS=80,443
     - UDP_PORTS=53
     - LIMIT_PORT=8388
     - RATE=4mbit
