@@ -3,8 +3,10 @@ ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 22
 COPY rootfs /
 
-RUN apk add --no-cache openssh && \
+RUN apk add --no-cache openssh bash && \
   sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config && \
+  sed -i s/#HostbasedAuthentication.*/HostbasedAuthentication\ yes/ /etc/ssh/sshd_config && \
+  sed -i s/#IgnoreRhosts.*/IgnoreRhosts\ no/ /etc/ssh/sshd_config && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/ash student && \
   echo "student:password" | chpasswd && \
