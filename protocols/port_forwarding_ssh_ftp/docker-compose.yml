@@ -8,11 +8,13 @@ services:
     sshd:
         build: ./sshd_config
         container_name: ssh_server
+        hostname: ssh_server
         ports:
           - "9002:22"
  
     ftpd:
         build: ./ftpd_config
         container_name: ftp_server
+        hostname: ftp_server
         ports:
           - "9001:21"
