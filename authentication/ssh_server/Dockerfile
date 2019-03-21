@@ -15,4 +15,6 @@ RUN apk add --no-cache openssh bash && \
   adduser -D -s /bin/bash instructor && \
   echo "instructor:password" | chpasswd && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /home/instructor/.bashrc && \
-  chown -R instructor:instructor /home/instructor
+  chown -R instructor:instructor /home/instructor && \
+  sed -i s/export\ PS1.*// /etc/profile && \
+  echo export PS1=\"\\u@\\h:\\W \$ \" >> /etc/profile 

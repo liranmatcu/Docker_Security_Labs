@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk update && apk add openssh-client openssh bash && \
+RUN apk --no-cache add openssh-client openssh bash && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   passwd -u student && \
@@ -8,5 +8,7 @@ RUN apk update && apk add openssh-client openssh bash && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /home/student/.bashrc && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /home/instructor/.bashrc && \
+  sed -i s/export\ PS1.*// /etc/profile && \
+  echo export PS1=\"\\u@\\h:\\W \$ \" >> /etc/profile && \
   chown -R instructor:instructor /home/instructor && \
   chown -R student:student /home/student
