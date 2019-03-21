@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk update && apk add bash zsh iputils net-tools gcc && \
+RUN apk update && apk add bash acl zsh iputils net-tools gcc && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   echo "student:password" | chpasswd && \
