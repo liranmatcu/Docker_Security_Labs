@@ -1,12 +1,12 @@
-FROM alpine:3.6
+FROM alpine
 RUN apk update && apk add openssh-client openssh bash && \
   echo "root:password" | chpasswd && \
-  adduser -D -s /bin/ash student && \
+  adduser -D -s /bin/bash student && \
   passwd -u student && \
-  chown -R student:student /home/student && \
-  adduser -D -s /bin/ash instructor && \
+  adduser -D -s /bin/bash instructor && \
   passwd -u instructor && \
-  chown -R instructor:instructor /home/instructor && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /home/student/.bashrc && \
-  echo PS1=\"\\u@\\h:\\W \$ \" >> /home/instructor/.bashrc 
+  echo PS1=\"\\u@\\h:\\W \$ \" >> /home/instructor/.bashrc && \
+  chown -R instructor:instructor /home/instructor && \
+  chown -R student:student /home/student

@@ -1,0 +1,5 @@
+git clone https://github.com/liranmatcu/Docker_Security_Labs.git
+
+cd  Docker_Security_Labs/authentication/ssh_client
+docker build -t ssh-client .
+docker run -it --name client --hostname client --rm -v "$PWD"/pub_keys:/pub_keys ssh-client bash
