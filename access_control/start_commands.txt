@@ -1,0 +1,7 @@
+git clone https://github.com/liranmatcu/Docker_Security_Labs.git
+cd  Docker_Security_Labs/access_control/
+
+docker build -t sec-linux .
+docker run -it --name client --hostname client --rm sec-linux bash
+
+
