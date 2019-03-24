@@ -2,18 +2,6 @@ version: "3"
 
 services:
 
-  # Web service: Nginx
-  web-server:
-    image: nginx:alpine
-    container_name: web-server
-    hostname: web
-    ports:
-     - "80:80"
-    environment:
-     - NGINX_HOST=eurekalabs.net
-     - NGINX_PORT=80
-    restart: unless-stopped
-
   # Firewalls
   iptables:
     build: ./iptables
@@ -23,6 +11,15 @@ services:
       - "8388:8388"
     cap_add:
       - NET_ADMIN
+    restart: unless-stopped
+
+  # Web service: Nginx
+  web-server:
+    image: nginx:alpine
+    container_name: web-server
+    hostname: web
+    ports:
+     - "80:80"
     restart: unless-stopped
 
   # SSH service
