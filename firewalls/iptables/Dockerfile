@@ -4,7 +4,7 @@
 
 FROM alpine
 
-RUN apk update && apk add iproute2 openssh curl bash && \
+RUN apk update && apk add iproute2 openssh-client curl bash && \
     echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
     ln -s /usr/lib/tc /lib/tc
 # iproute2 includes iptables
