@@ -2,8 +2,8 @@ version: "3"
 
 services:
 
-  # Firewalls
-  iptables:
+  # Firewall service: iptables
+  firewall:
     build: ./iptables
     container_name: iptables
     hostname: firewall
