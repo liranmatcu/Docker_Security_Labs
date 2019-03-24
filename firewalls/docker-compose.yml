@@ -1,25 +1,63 @@
-shadowsocks:
-  image: vimagick/shadowsocks-libev
-  environment:
-    - DNS_ADDR=8.8.8.8
-    - METHOD=chacha20
-    - PASSWORD=password
-  net: container:iptables
-  restart: always
+version: "3"
 
-iptables:
-  build: ./iptables
-  ports:
-    - "8388:8388"
-  environment:
-    - TCP_PORTS=80,443
-    - UDP_PORTS=53
-    - LIMIT_PORT=8388
-    - RATE=4mbit
-    - BURST=4kb
-    - LIMIT_CONN=5
-    - INTERVAL=60
-    - LATENCY=50ms
-  cap_add:
-    - NET_ADMIN
-  restart: always
+services:
+
+  # Nginx Service
+  web-server:
+    image: nginx:alpine
+    container_name: web-server
+    hostname: web
+    ports:
+     - "80:80"
+    environment:
+     - NGINX_HOST=eurekalabs.net
+     - NGINX_PORT=80
+    networks: 
+     - app-network
+    restart: unless-stopped
+
+  # Firewalls
+  iptables:
+    build: ./iptables
+    container_name: iptables
+    hostname: firewall
+    ports:
+      - "8388:8388"
+    cap_add:
+      - NET_ADMIN
+    networks: 
+      - app-network
+    restart: unless-stopped
+    # environment:
+    #   - TCP_PORTS=80,443
+    #   - UDP_PORTS=53
+    #   - LIMIT_PORT=8388
+    #   - RATE=4mbit
+    #   - BURST=4kb
+    #   - LIMIT_CONN=5
+    #   - INTERVAL=60
+    #   - LATENCY=50ms
+
+  ssh-server:
+    build: ./sshd
+    container_name: ssh-server
+    hostname: sshd
+    ports:
+      - "22:22"
+    networks: 
+      - app-network
+    restart: unless-stopped
+
+# shadowsocks:
+#   image: vimagick/shadowsocks-libev
+#   environment:
+#     - DNS_ADDR=8.8.8.8
+#     - METHOD=chacha20
+#     - PASSWORD=password
+#   net: container:iptables
+#   restart: always
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
