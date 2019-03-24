@@ -4,7 +4,8 @@
 
 FROM alpine
 
-RUN apk update && apk add iproute2 openssh-client curl bash && \
+RUN apk update && apk add iproute2 openssh-client openssh curl bash && \
+    echo "root:password" | chpasswd && \
     echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
     ln -s /usr/lib/tc /lib/tc
 # iproute2 includes iptables
@@ -24,4 +25,4 @@ CMD iptables -F \
     && iptables -A OUTPUT -p udp -m state --state NEW -m multiport ! --dports $UDP_PORTS -j DROP \
     && iptables -A OUTPUT -p icmp --icmp-type 8 -j DROP \
     && tc qdisc add dev eth0 root tbf rate $RATE burst $BURST latency $LATENCY \
-    && watch -n $INTERVAL tc -s qdisc ls dev eth0
+    && watch -n $INTERVAL tc -s qdisc ls dev eth0 
