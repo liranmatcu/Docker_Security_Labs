@@ -1,4 +1,13 @@
 FROM fedora:latest
 
-RUN dnf install -y zsh gcc iputils net-tools && useradd instructor && useradd student && chown -R instructor:instructor /home/instructor && chown -R student:student /home/student
+RUN dnf install -y passwd zsh gcc iputils net-tools util-linux-user
+
+RUN useradd student && useradd instructor
+RUN chown -R instructor:instructor /home/instructor
+RUN chown -R student:student /home/student
+RUN echo "student:password" | chpasswd
+# RUN echo "instructor:password" | chpasswd
+RUN echo "password" | passwd --stdin instructor
+# RUN echo -e "password\npassword" | passwd instructor
+
 RUN setcap -r /bin/ping && chmod u+s /bin/ping
