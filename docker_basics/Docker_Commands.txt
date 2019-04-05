@@ -1,0 +1,107 @@
+
+
+# Download Docker images
+docker pull fedora
+docker pull fedora:24  (pull with a tag, latest)
+
+
+# List local images
+docker images        # (same as "docker image ls")
+docker image ls -a   # (show all images)
+
+
+# Run a command in a new container; create a new container from an image
+docker run -it --name fc24 fedora bash 
+(it: interactive terminal, fedora is the image name, bash is the command)
+docker run -it fedora   # (a simple version to run)
+
+# port mapping option
+-p 1234:80 
+
+# volume mounting for data
+-v  [path to local]:[path inside container]
+docker run -it --name fc24 -v /Users/lma/Docker/Data:/my-data fedora
+/Users/lma/Docker/Data is my local data folder
+docker run -it --name fc24 --rm -v /Users/lma/Docker/Data:/my-data fedora bash
+
+
+# List running containers
+docker ps       # (docker container ls)
+docker ps -a    # (docker container ls -a) 
+
+
+
+# Check the details of an image
+docker inspect fc24
+docker inspect fc24 | grep IPAddress
+
+
+
+# To detach the tty without exiting the shell
+Use the escape sequence Ctrl-p + Ctrl-q
+
+# Re-attach to an existing/running container/shell
+docker attach fc24
+
+# Run a command in an existing/running container
+docker exec -it fc24 bash
+docker exec -it container_name /bin/bash
+
+
+# Quit/terminate or stop the container/shell
+exit  # ("docker ps -a" will show the exited containers)
+docker stop fc24
+
+# start/restart an exited container (note no command/shell is running)
+docker start fc24
+docker exec -it fc24 bash
+
+
+# Delete exited containers (if you really want to do that)
+docker rm $(docker ps -a -f status=exited -q)
+docker rm fc24         # (remove fc24 container, which may be running)
+
+# Delete an image
+docker rmi fedora:24   # (remove container image fedora with tag 24)
+docker image rm        # (delete images using IDs)
+
+# Deleted all
+docker system prune
+
+
+git clone https://github.com/liranmatcu/Docker_Security_Labs.git
+# Dockerfile, for Linux
+docker build -t sec_linux . 
+docker run -it --name host_a -v "$PWD"/local_data:/docker_data sec_linux bash
+
+
+# Web-httpd with https
+https://hub.docker.com/_/httpd
+
+docker build -t sec_web_https .  
+docker run -dit --name web -p 8080:80 -p 443:443 sec_web_https
+
+
+without docker file
+docker run -it --name web -p 8080:80 -p 443:443 -v "$PWD":/usr/local/apache2/htdocs/ sec_web_https
+
+
+
+# Docker Compose
+docker-compose up -d
+docker-compose run FCserver bash
+docker-compose exec <container name> <command>
+docker-compose exec container_name sh
+
+nc -v 127.0.0.1 9001
+nc -v 127.0.0.1 9002
+
+docker inspect ftp_server
+172.19.0.3
+
+ssh -L 9000:ftp_server_IP:21 root@127.0.0.1 -p 9002
+nc -v 127.0.0.1 9000
+
+Reference:
+https://jonnylangefeld.github.io/learning/Docker/How%2Bto%2BDocker.html
+
