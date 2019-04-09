@@ -2,9 +2,9 @@ version: "3"
 
 services:
 
-  # Web service: Nginx
+  # Web service: Apache + Fedora
   web-server:
-    image: nginx:alpine
+    build: ./web
     container_name: web-server
     hostname: web
     ports:
@@ -25,14 +25,14 @@ services:
     hostname: attacker
     restart: unless-stopped
 
-  # Firewall service: iptables
-  firewall:
-    build: ./iptables
-    container_name: iptables
-    hostname: firewall
-    ports:
-      - "8388:8388"
-    cap_add:
-      - NET_ADMIN
-    restart: unless-stopped
+  # # Firewall service: iptables
+  # firewall:
+  #   build: ./iptables
+  #   container_name: iptables
+  #   hostname: firewall
+  #   ports:
+  #     - "8388:8388"
+  #   cap_add:
+  #     - NET_ADMIN
+  #   restart: unless-stopped
 
