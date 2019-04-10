@@ -16,14 +16,16 @@ services:
     build: ./client
     container_name: client
     hostname: client
-    restart: unless-stopped
+    stdin_open: true
+    tty: true
 
   # Attacker using ping and curl to web-server
   attacker:
     build: ./attacker
     container_name: attacker
     hostname: attacker
-    restart: unless-stopped
+    stdin_open: true
+    tty: true
 
   # # Firewall service: iptables
   # firewall:

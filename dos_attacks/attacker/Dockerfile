@@ -5,7 +5,7 @@ RUN apk add bash iputils net-tools curl && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc
 
 ADD dos-attacks-curl.sh /dos-attacks-curl.sh
-ADD dos-attacks-ping.sh /dos-attacks-ping.sh
+RUN chmod +x /dos-attacks-curl.sh
 
 # CMD ["/dos-attacks-curl.sh"]
  
