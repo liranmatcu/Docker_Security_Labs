@@ -4,11 +4,14 @@ services:
 
   # Web service: Apache + Fedora
   web-server:
-    build: ./web
+    build: ./web-fedora
     container_name: web-server
     hostname: web
     ports:
      - "80:80"
+    cap_add:
+     - NET_ADMIN
+    privileged: true 
     restart: unless-stopped
 
   # Client
@@ -27,14 +30,4 @@ services:
     stdin_open: true
     tty: true
 
-  # # Firewall service: iptables
-  # firewall:
-  #   build: ./iptables
-  #   container_name: iptables
-  #   hostname: firewall
-  #   ports:
-  #     - "8388:8388"
-  #   cap_add:
-  #     - NET_ADMIN
-  #   restart: unless-stopped
 
