@@ -1,6 +1,6 @@
 FROM fedora:latest
 
-RUN dnf install -y passwd zsh gcc iputils net-tools util-linux-user sudo
+RUN dnf install -y passwd zsh gcc iputils net-tools util-linux-user sudo procps
 
 RUN useradd student && useradd instructor
 RUN chown -R instructor:instructor /home/instructor

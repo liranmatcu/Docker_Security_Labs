@@ -23,11 +23,17 @@ services:
     tty: true
 
   # Attacker using ping and curl to web-server
-  attacker:
+  attacker-1:
     build: ./attacker
-    container_name: attacker
-    hostname: attacker
+    container_name: attacker-1
+    hostname: attacker-1
     stdin_open: true
     tty: true
 
-
+  # Attacker using ping and curl to web-server
+  attacker-2:
+    build: ./attacker
+    container_name: attacker-2
+    hostname: attacker-2
+    stdin_open: true
+    tty: true
