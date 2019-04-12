@@ -1,7 +1,7 @@
 FROM fedora
 
 # Updating dependencies, installing Apache and cleaning dnf caches to reduce container size
-RUN dnf -y update && dnf -y install httpd iptables iptables-services && dnf clean all
+RUN dnf -y update && dnf -y install httpd iptables iptables-services tcpdump && dnf clean all
 
 # Creating placeholder file to be served by apache
 RUN echo "<header><h1>DoS Attack Lab</h1></header>" >> /var/www/html/index.html
