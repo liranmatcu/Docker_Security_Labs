@@ -28,7 +28,7 @@ services:
     container_name: ssh-server
     hostname: sshd
     ports:
-      - "22:22"
+      - "8022:22"
     restart: unless-stopped
 
   # Telnet service
