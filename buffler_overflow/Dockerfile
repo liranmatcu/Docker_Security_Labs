@@ -7,5 +7,5 @@ RUN chown -R instructor:instructor /home/instructor
 RUN chown -R student:student /home/student
 RUN echo "student:password" | chpasswd
 
-ADD ./c_prorgams  /home/student/
+ADD ./c_programs  /home/student/
 
