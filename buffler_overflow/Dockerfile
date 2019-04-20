@@ -1,6 +1,6 @@
 FROM fedora:latest
 
-RUN dnf install -y zsh gcc iputils net-tools util-linux-user nmap vim
+RUN dnf install -y zsh gcc iputils net-tools util-linux-user nmap tcpdump vim
 
 RUN useradd student && useradd instructor
 RUN chown -R instructor:instructor /home/instructor
