@@ -1,4 +1,4 @@
-FROM fedora:16
+FROM fedora:18
 
 RUN dnf install -y zsh gcc iputils net-tools util-linux-user nmap tcpdump vim wget
 
