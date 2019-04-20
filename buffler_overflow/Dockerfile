@@ -1,15 +1,11 @@
-FROM ubuntu:12.04
-# erwinchang/ubuntu-12.04-32bit-build
-# iqmi/ubuntu-12.04-base
+FROM fedora:14
 
-RUN apt-get update \
-    && apt-get install -y --force-yes --no-install-recommends supervisor \
-        gcc zsh sudo vim-tiny wget libc-dev
+RUN dnf install -y zsh gcc iputils net-tools util-linux-user nmap tcpdump vim wget
 
-RUN useradd -ms /bin/bash student
-
-# USER student
-# WORKDIR /home/student
+RUN useradd student && useradd instructor
+RUN chown -R instructor:instructor /home/instructor
+RUN chown -R student:student /home/student
+RUN echo "student:password" | chpasswd
 
 ADD ./c_programs  /home/student/
 
