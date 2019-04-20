@@ -8,7 +8,7 @@ RUN apt-get update \
 
 RUN adduser student 
 RUN chown -R student:student /home/student
-RUN echo "student:password" | chpasswd
+# RUN echo "student:password" | chpasswd
 
 ADD ./c_programs  /home/student/
 
