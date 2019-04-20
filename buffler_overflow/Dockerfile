@@ -4,7 +4,7 @@ FROM ubuntu:12.04
 
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
-        gcc zsh sudo vim-tiny wget 
+        gcc zsh sudo vim-tiny wget libc-dev
 
 RUN useradd -ms /bin/bash student
 
