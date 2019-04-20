@@ -7,8 +7,9 @@ RUN apt-get update \
         gcc zsh sudo vim-tiny wget 
 
 RUN useradd -ms /bin/bash student
-USER student
-WORKDIR /home/student
+
+# USER student
+# WORKDIR /home/student
 
 ADD ./c_programs  /home/student/
 
