@@ -1,7 +1,6 @@
 git clone https://github.com/liranmatcu/Docker_Security_Labs.git
-cd  Docker_Security_Labs/access_control/
+cd  Docker_Security_Labs/buffer_overflow/
 
 docker build -t sec-linux .
-docker run -it --name fedora_linux --hostname fedora --rm sec-linux bash
 
-
+sudo docker run -it --privileged --name eureka-lab --hostname eureka --rm sec-linux bash
