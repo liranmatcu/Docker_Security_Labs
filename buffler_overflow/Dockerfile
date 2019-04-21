@@ -6,6 +6,7 @@ RUN useradd student && useradd instructor
 RUN chown -R instructor:instructor /home/instructor
 RUN chown -R student:student /home/student
 RUN echo "student:password" | chpasswd
+RUN echo 0 > /proc/sys/kernel/randomize_va_space
 
 ADD ./c_programs  /home/student/
 
