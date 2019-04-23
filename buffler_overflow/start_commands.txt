@@ -3,4 +3,4 @@ cd  Docker_Security_Labs/buffer_overflow/
 
 docker build -t sec-linux .
 
-sudo docker run -it --privileged --name eureka-lab --hostname eureka --rm sec-linux bash
+sudo docker run -it --privileged --name eureka-lab --hostname buffer sec-linux bash
