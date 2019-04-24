@@ -1,6 +1,6 @@
-FROM fedora:latest
+FROM fedora:20
 
-RUN dnf install -y zsh gcc iputils net-tools util-linux-user nmap tcpdump vim wget
+RUN yum install -y zsh gcc libtool glibc-devel iputils net-tools util-linux-user nmap tcpdump vim wget
 
 RUN useradd student && useradd instructor
 RUN chown -R instructor:instructor /home/instructor
