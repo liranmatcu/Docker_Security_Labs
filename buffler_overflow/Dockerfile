@@ -1,6 +1,6 @@
 FROM fedora:latest
 
-RUN dnf install -y zsh gcc libtool glibc-devel iputils net-tools util-linux-user nmap tcpdump vim wget
+RUN dnf install -y zsh gcc libtool glibc-devel glibc-devel.i686 iputils net-tools util-linux-user nmap tcpdump vim wget
 
 RUN useradd student && useradd instructor
 RUN chown -R instructor:instructor /home/instructor
