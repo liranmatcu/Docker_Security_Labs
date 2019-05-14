@@ -19,7 +19,6 @@
 #
 
 FROM ubuntu:14.04
-MAINTAINER Phocean <jc@phocean.net>
 
 WORKDIR /opt
 USER root
@@ -77,3 +76,4 @@ VOLUME /tmp/data/
 
 # Starting script (DB + updates)
 CMD /usr/local/bin/init.sh
+
