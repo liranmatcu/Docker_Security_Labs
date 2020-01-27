@@ -1,7 +1,15 @@
-FROM fedora
+FROM alpine:3.10.2
+WORKDIR /root
 
-RUN dnf -y install openssh-server openssh-clients && \
-dnf -y install openssl-* && \
-dnf -y install python python3 && \
-dnf -y install wget && \
-dnf -y install vim
+ENV PS1="\u@ciphers: \w $ "
+
+RUN apk update && apk upgrade && \
+apk add openssh-server && \
+apk add openssh-client && \
+apk add openssl && \
+apk add python python3 && \
+apk add wget && \
+apk add vim && \
+apk add perl && \
+apk add bash && \
+apk add curl
