@@ -1,0 +1,20 @@
+# Docker Version: 18.09
+# Docker Compose Version: 3.7
+
+version: "3"
+
+services:
+
+    sshd:
+        build: ./sshd_config
+        container_name: ssh_server
+        hostname: ssh_server
+        ports:
+          - "9002:22"
+ 
+    ftpd:
+        build: ./ftpd_config
+        container_name: ftp_server
+        hostname: ftp_server
+        ports:
+          - "9001:21"
