@@ -7,5 +7,4 @@ ENV PS1="\u@\h: \w $ "
 RUN apk update && apk upgrade && \
 apk add gnupg && \
 apk add pinentry && \
-apk add vim && \
 apk add bash
