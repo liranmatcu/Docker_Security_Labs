@@ -1,7 +1,7 @@
 FROM alpine:3.10.2
 
 # Change environmental variables
-ENV PS1="\u@PGP: \w $ "
+ENV PS1="\u@\h: \w $ "
 
 RUN apk update && apk upgrade && \
 apk add gnupg && \
