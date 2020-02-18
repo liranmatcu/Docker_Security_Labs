@@ -13,17 +13,17 @@ apk add findutils
 # Add users and changes their passwords
 RUN echo "root:password" | chpasswd && \
 adduser -D -s /bin/bash user1 && \
-echo -e "Hello\nHello" >> passwd -u user1 && \
+echo -e "user1:Hello" | chpasswd && \
 adduser -D -s /bin/bash user2 && \
-echo -e "123\n123" >> passwd -u user2 && \
+echo -e "user2:123" | chpasswd && \
 adduser -D -s /bin/bash user3 && \
-echo -e "Flower\nFlower" >> passwd -u user3 && \
+echo -e "user3:Flower" | chpasswd && \
 adduser -D -s /bin/bash user4 && \
-echo -e "Dragon\nDragon" >> passwd -u user4 && \
+echo -e "user4:Dragon" | chpasswd && \
 adduser -D -s /bin/bash user5 && \
-echo -e "Hellodragon\nHellodragon" >> passwd -u user5 && \
+echo -e "user5:Hellodragon" | chpasswd && \
 adduser -D -s /bin/bash user6 && \
-echo -e "123Hello\n123Hello" >> passwd -u user6
+echo -e "user6:123Hello" | chpasswd
 
 # Set PS1 variable
 RUN echo 'export PS1="\u@password-crack: \W $ "' >> /root/.bashrc && \
