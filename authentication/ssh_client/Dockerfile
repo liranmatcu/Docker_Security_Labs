@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk --no-cache add openssh-client openssh bash && \
+RUN apk --no-cache add openssh-client openssh openssh-keysign bash && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   passwd -u student && \
