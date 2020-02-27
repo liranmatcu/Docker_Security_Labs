@@ -11,7 +11,7 @@ RUN apk add --no-cache openssh bash && \
   sed -i "/IgnoreRhosts.*/a HostbasedUsesNameFromPacketOnly yes" /etc/ssh/sshd_config && \
   echo "ssh-client" >> /etc/ssh/shosts.equiv && \
   echo "172.17.0.2" >> /etc/ssh/shosts.equiv && \
-  echo "ssh-client,172.17.0.2 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFTsmmvLzf0mCC2i2qc6VwLADIPBTQqlTt1KlQVKqWRhB/qr0xnLLOVI5BuZ5rP/GpS9ilhuj6WPCBHlwrU88Qo=" >> /etc/ssh/ssh_known_hosts && \
+  echo "example-client,192.168.0.2 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFTsmmvLzf0mCC2i2qc6VwLADIPBTQqlTt1KlQVKqWRhB/qr0xnLLOVI5BuZ5rP/GpS9ilhuj6WPCBHlwrU88Qo=" >> /etc/ssh/ssh_known_hosts && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   echo "student:password" | chpasswd && \
