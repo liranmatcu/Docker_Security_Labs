@@ -8,9 +8,10 @@ RUN apk add --no-cache openssh bash && \
   sed -i s/AllowTcpForwarding.*/AllowTcpForwarding\ yes/ /etc/ssh/sshd_config && \
   sed -i s/#HostbasedAuthentication.*/HostbasedAuthentication\ yes/ /etc/ssh/sshd_config && \
   sed -i s/#IgnoreRhosts.*/IgnoreRhosts\ no/ /etc/ssh/sshd_config && \
+  sed -i "/IgnoreRhosts.*/a HostbasedUsesNameFromPacketOnly yes" /etc/ssh/sshd_config && \
   echo "ssh-client" >> /etc/ssh/shosts.equiv && \
   echo "172.17.0.2" >> /etc/ssh/shosts.equiv && \
-  echo "ssh-client,172.17.0.2" >> /etc/ssh/ssh_known_hosts && \
+  echo "ssh-client,172.17.0.2 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFTsmmvLzf0mCC2i2qc6VwLADIPBTQqlTt1KlQVKqWRhB/qr0xnLLOVI5BuZ5rP/GpS9ilhuj6WPCBHlwrU88Qo=" >> /etc/ssh/ssh_known_hosts && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   echo "student:password" | chpasswd && \
