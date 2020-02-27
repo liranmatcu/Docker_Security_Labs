@@ -1,6 +1,6 @@
 FROM alpine
 RUN apk --no-cache add openssh-client openssh openssh-keysign bash && \
-  sed -i s/#*HostbasedAuthentication.*/HostbasedAuthentication\ yes/ /etc/ssh/ssh_config && \
+  sed -i s/#\ \ \ HostbasedAuthentication.*/HostbasedAuthentication\ yes/ /etc/ssh/ssh_config && \
   echo "EnableSSHKeysign yes" >> /etc/ssh/ssh_config && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
