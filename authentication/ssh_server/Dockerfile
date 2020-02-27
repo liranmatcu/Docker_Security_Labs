@@ -8,6 +8,7 @@ RUN apk add --no-cache openssh bash && \
   sed -i s/AllowTcpForwarding.*/AllowTcpForwarding\ yes/ /etc/ssh/sshd_config && \
   sed -i s/#HostbasedAuthentication.*/HostbasedAuthentication\ yes/ /etc/ssh/sshd_config && \
   sed -i s/#IgnoreRhosts.*/IgnoreRhosts\ no/ /etc/ssh/sshd_config && \
+  echo "HostbasedUsesNameFromPacketOnly yes" >> /etc/ssh/sshd_config && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   echo "student:password" | chpasswd && \
