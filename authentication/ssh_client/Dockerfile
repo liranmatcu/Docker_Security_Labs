@@ -11,4 +11,5 @@ RUN apk --no-cache add openssh-client openssh bash && \
   sed -i s/export\ PS1.*// /etc/profile && \
   echo export PS1=\"\\u@\\h:\\W \$ \" >> /etc/profile && \
   chown -R instructor:instructor /home/instructor && \
-  chown -R student:student /home/student
+  chown -R student:student /home/student && \
+  ssh-keygen -A
