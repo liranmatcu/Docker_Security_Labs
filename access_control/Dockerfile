@@ -1,13 +1,25 @@
-FROM fedora:latest
+FROM alpine:3.10.2
+CMD ["/bin/bash"]
 
-RUN dnf install -y passwd zsh gcc iputils net-tools util-linux-user sudo procps
-
-RUN useradd student && useradd instructor
-RUN chown -R instructor:instructor /home/instructor
-RUN chown -R student:student /home/student
-RUN echo "student:password" | chpasswd
-# RUN echo "instructor:password" | chpasswd
-RUN echo "password" | passwd --stdin instructor
-# RUN echo -e "password\npassword" | passwd instructor
-
-RUN setcap -r /bin/ping && chmod u+s /bin/ping
+RUN apk update && apk add bash acl zsh iputils net-tools gcc vim which && \
+  echo "root:password" | chpasswd && \
+  adduser -D -s /bin/bash student && \
+  echo "student:password" | chpasswd && \
+  adduser -D -s /bin/bash instructor && \
+  echo "instructor:password" | chpasswd && \
+  echo 'export PS1="\u@access-control: \W $ "' >> /root/.bashrc && \
+  echo 'export PS1="\u@access-control: \W $ "' >> /home/student/.bashrc && \
+  echo 'export PS1="\u@access-control: \W $ "' >> /home/instructor/.bashrc && \
+  echo PS1=\"zsh-%n@access-control: %/ $\" >> /root/.zshenv && \
+  echo PS1=\"zsh-%n@access-control: %/ $\" >> /home/student/.zshenv && \
+  echo PS1=\"zsh-%n@access-control: %/ $\" >> /home/instructor/.zshenv && \
+  echo "alias ll='ls -al'" >> /root/.bashrc && \
+  echo "alias c='clear'" >> /root/.bashrc && \
+  echo "alias ll='ls -al'" >> /home/student/.profile && \
+  echo "alias c='clear'" >> /home/student/.profile && \
+  echo "alias ll='ls -al'" >> /home/instructor/.profile && \
+  echo "alias c='clear'" >> /home/instructor/.profile && \
+  sed -i s/export\ PS1.*// /etc/profile && \
+  echo export PS1=\"\\u@\\h:\\W \$ \" >> /etc/profile && \
+  chown -R instructor:instructor /home/instructor && \
+  chown -R student:student /home/student

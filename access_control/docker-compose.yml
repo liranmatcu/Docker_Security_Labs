@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  access-control:
+    build: .
+    image: access-control
+    container_name: access-control
+    hostname: access-control
+    stdin_open: true
+    tty: true
