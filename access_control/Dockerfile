@@ -8,8 +8,11 @@ RUN apk update && apk add bash acl zsh iputils net-tools gcc vim which && \
   adduser -D -s /bin/bash instructor && \
   echo "instructor:password" | chpasswd && \
   echo 'export PS1="\u@access-control: \W $ "' >> /root/.bashrc && \
-  echo 'export PS1="\u@access-control: \W $ "' >> /home/student/.bashrc && \
-  echo 'export PS1="\u@access-control: \W $ "' >> /home/instructor/.bashrc && \
+  echo 'export PS1="\u@access-control: \W $ "' >> /home/student/.profile && \
+  echo 'umask 002' >> /home/student/.profile && \
+  echo 'umask 002' >> /home/student/.bashrc && \
+  echo 'export PS1="\u@access-control: \W $ "' >> /home/instructor/.profile && \
+  echo 'umask 002' >> /home/instructor/.profile && \
   echo PS1=\"zsh-%n@access-control: %/ $\" >> /root/.zshenv && \
   echo PS1=\"zsh-%n@access-control: %/ $\" >> /home/student/.zshenv && \
   echo PS1=\"zsh-%n@access-control: %/ $\" >> /home/instructor/.zshenv && \
