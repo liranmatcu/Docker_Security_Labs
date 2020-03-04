@@ -1,4 +1,4 @@
-FROM alpine:3.10.2
+FROM alpine
 ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 22
 COPY entrypoint.sh /

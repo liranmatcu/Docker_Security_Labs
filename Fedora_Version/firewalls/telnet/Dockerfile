@@ -1,4 +1,4 @@
-FROM alpine:3.10.2
+FROM alpine
 
 COPY rootfs /root
 EXPOSE 23

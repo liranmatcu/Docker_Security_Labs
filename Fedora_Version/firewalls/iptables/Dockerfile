@@ -1,4 +1,8 @@
-FROM alpine:3.10.2
+#
+# Dockerfile for iptables
+#
+
+FROM alpine
 
 RUN apk update && apk add iproute2 openssh-client curl nmap bash && \
     echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
