@@ -1,4 +1,4 @@
-FROM alpine:3.10.2
+FROM alpine
 
 RUN apk add bash iputils net-tools curl && \
   apk add hping3 --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
@@ -11,3 +11,4 @@ RUN chmod +x /dos-attacks-curl.sh
 RUN chmod +rw /slowloris.py
 
 # CMD ["/dos-attacks-curl.sh"]
+ 
