@@ -1,0 +1,13 @@
+
+
+docker run -d -p 3128:3128 squid
+
+docker exec -it <container-ID> bash
+
+
+Test from local computer
+curl -x 127.0.0.1:3128 www.tcu.com
+
+
+# make some changes and restart 
+docker restart <container-ID>

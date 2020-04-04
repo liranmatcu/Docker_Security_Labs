@@ -1,14 +1,19 @@
 FROM alpine:3.10.2
 
-RUN set -x \
-    # Install Squid.
- && apk add --no-cache squid \
-    # Install dumb-init (to handle PID 1 correctly).
-    # https://github.com/Yelp/dumb-init
- && wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 \
- && chmod +x /usr/local/bin/dumb-init
+# Install Squid
+RUN apk add --no-cache --update squid bash 
 
+# Enable caching by default
+RUN sed -i 's|#cache_dir ufs /var/cache/squid 100 16 256|cache_dir aufs /var/cache/squid 100 16 256|' /etc/squid/squid.conf
+
+# Disable access to Squid from localhost
+RUN sed -i 's|#http_access deny to_localhost|http_access deny to_localhost|' /etc/squid/squid.conf
+
+# Create swap directories
+RUN /usr/sbin/squid -Nz -f /etc/squid/squid.conf
+
+# Expose port
 EXPOSE 3128
 
-ENTRYPOINT ["dumb-init"]
-CMD ["squid", "-N"]
+ENTRYPOINT ["/usr/sbin/squid", "-N", "-Y", "-C", "-d", "1", "-f", "/etc/squid/squid.conf"]
+
