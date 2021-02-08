@@ -13,3 +13,6 @@ apk add vim && \
 apk add perl && \
 apk add bash && \
 apk add curl
+
+
+ADD feistel /root
