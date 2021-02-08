@@ -15,4 +15,4 @@ apk add bash && \
 apk add curl
 
 
-ADD feistel /root
+ADD feistel /root/feistel
