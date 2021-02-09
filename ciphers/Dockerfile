@@ -16,3 +16,4 @@ apk add curl
 
 
 ADD feistel /root/feistel
+ADD wiki /root/wiki
