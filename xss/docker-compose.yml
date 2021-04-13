@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  # Web service
+  xss:
+    build: .
+    container_name: xss-phishing
+    hostname: xss
+    ports:
+     - "5000:5000"
+     - "5001:5001"
+     - "443:443"
+    restart: unless-stopped
+
