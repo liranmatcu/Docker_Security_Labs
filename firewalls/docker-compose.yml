@@ -39,3 +39,12 @@ services:
     ports:
       - "23:23"
     restart: unless-stopped
+
+  # Web proxy service (squid)
+  web-proxy:
+    build: ./squid
+    container_name: web-proxy
+    hostname: web-proxy
+    ports:
+      - "3128:3128"
+    restart: unless-stopped
