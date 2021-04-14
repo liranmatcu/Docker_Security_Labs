@@ -22,6 +22,7 @@ def blog():
 
     return render_template("blog.html", blog=endhtml)
 
+
 @app.route('/createblog', methods=["GET", "POST"])
 def blogcreate():
 
@@ -38,6 +39,7 @@ def blogcreate():
     if request.method == "GET":
         return render_template("create.html")
 
+
 @app.route('/pagenotfound', methods=["GET", "POST"])
 def notfound():
 
@@ -45,11 +47,6 @@ def notfound():
 
     return render_template("found.html", text=text)
 
-
-@app.route('/12306', methods=["GET", "POST"])
-def china():
-
-    return render_template("12306.html")
 
 
 if __name__ == '__main__':

@@ -6,13 +6,12 @@ services:
   xss:
     build: ./
     # image: tiangolo/uwsgi-nginx:python3.8-alpine
-    container_name: xss-phishing
-    hostname: xss
+    container_name: xss-flask
+    hostname: xss-flask
     ports:
         - "5000:5000"
         - "5001:5001"
         - "443:443"
+    restart: unless-stopped
     # volumes:
     #     - ./app:/app
-    restart: unless-stopped
-

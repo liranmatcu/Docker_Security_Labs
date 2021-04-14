@@ -7,7 +7,7 @@ def get_image():
 
     print(request.args.get("name"))
 
-    return send_file('static/tcu.png', mimetype='image/png')
+    return send_file('/app/static/tcu.png', mimetype='image/png')
 
 
 if __name__ == '__main__':
