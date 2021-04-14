@@ -1,15 +1,10 @@
 from flask import Flask, render_template, request, redirect
-
-
-
 app = Flask(__name__)
-
 
 @app.route('/', methods=["GET", "POST"])
 def hello_world():
 
     if request.method == "POST":
-
 
         return redirect("http://d2l.tcu.edu")
 
@@ -20,15 +15,10 @@ def blog():
 
     endhtml = ""
 
-    with open("blog.txt", "r") as file:
+    with open("/app/blog.txt", "r") as file:
         lines = file.readlines()
-
         for item in lines:
-
             endhtml += "<div class='col-12 card' style='margin-top: 10px; margin-bottom: 10px;'><div class='card-body'><p>{}</p></div></div>".format(item)
-
-
-
 
     return render_template("blog.html", blog=endhtml)
 
@@ -41,8 +31,7 @@ def blogcreate():
         #content = content.replace("<", "&lt;")
         #content = content.replace(">", "&gt;")
 
-
-        with open("blog.txt", "a") as file:
+        with open("/app/blog.txt", "a") as file:
             file.write(content + "\n")
 
         return redirect("/blog")
@@ -56,10 +45,12 @@ def notfound():
 
     return render_template("found.html", text=text)
 
-@app.route('/china', methods=["GET", "POST"])
+
+@app.route('/12306', methods=["GET", "POST"])
 def china():
 
-    return render_template("china.html")
+    return render_template("12306.html")
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

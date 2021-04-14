@@ -4,12 +4,15 @@ services:
 
   # Web service
   xss:
-    build: .
+    build: ./
+    # image: tiangolo/uwsgi-nginx:python3.8-alpine
     container_name: xss-phishing
     hostname: xss
     ports:
-     - "5000:5000"
-     - "5001:5001"
-     - "443:443"
+        - "5000:5000"
+        - "5001:5001"
+        - "443:443"
+    # volumes:
+    #     - ./app:/app
     restart: unless-stopped
 
