@@ -1,4 +1,0 @@
-Hello World
-&lt;script&gt;alert("Hello");&lt;/script&gt;
-<script>alert("Hello");</script>
-<script>alert(document.cookie);</script>
