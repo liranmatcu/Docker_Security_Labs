@@ -4,8 +4,9 @@ services:
   # Web service with phishing
   phishing:
     build: ./
+    image: phishing
     container_name: phishing
-    hostname: fish
+    hostname: phish
     ports:
         - "5000:5000"
         - "5001:5001"
