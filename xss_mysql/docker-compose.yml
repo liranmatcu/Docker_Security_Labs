@@ -17,11 +17,11 @@ services:
     ports:
       - '3306:3306'
 
-  xss-demo:
+  xss-demo-web:
     build: .
     image: xss-apache
     container_name: web
     volumes:
-      - './src/:/var/www/html/'
+      - './html/:/var/www/html/'
     ports:
       - '80:80'
