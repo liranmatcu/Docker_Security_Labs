@@ -8,8 +8,6 @@
 <script>
   alert('Hello World!');
 </script>
-
-
 Once the comment was added, the included HTML-snippet will be executed every time the page loads.
 
 
