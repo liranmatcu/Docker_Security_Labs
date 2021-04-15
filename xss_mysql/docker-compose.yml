@@ -19,7 +19,8 @@ services:
 
   xss-demo:
     build: .
-    container_name: xss-apache
+    image: xss-apache
+    container_name: web
     volumes:
       - './src/:/var/www/html/'
     ports:
