@@ -5,8 +5,9 @@ docker compose build
 # docker-compose build
 
 # Start the container
-docker compose up
-# docker run -it --name buffer --hostname bo --rm --privileged overflow bash
+docker compose run buffer-overflow
+# docker-compose run --rm buffer-overflow
+# docker run -it --name buffer-overflow --hostname buffer-overflow --rm --privileged buffer-overflow bash
 
 
 
