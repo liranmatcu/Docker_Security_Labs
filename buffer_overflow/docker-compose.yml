@@ -8,5 +8,4 @@ services:
     container_name: buffer-overflow
     hostname: overflow
     privileged: true
-    restart: unless-stopped
 

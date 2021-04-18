@@ -1,11 +1,12 @@
 # Buffer Overflow Attacks
 
-# To start the container instance
+# Build the container image
 docker compose build
 # docker-compose build
 
+# Start the container
 docker compose up
-docker run -it --name buffer --hostname bo --rm --privileged overflow bash
+# docker run -it --name buffer --hostname bo --rm --privileged overflow bash
 
 
 
