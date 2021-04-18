@@ -8,4 +8,6 @@ services:
     container_name: buffer-overflow
     hostname: overflow
     privileged: true
+    stdin_open: true
+    tty: true
 
