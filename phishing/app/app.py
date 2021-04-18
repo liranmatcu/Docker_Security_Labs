@@ -10,41 +10,6 @@ def hello_world():
 
     return render_template("index.html")
 
-@app.route('/blog', methods=["GET", "POST"])
-def blog():
-
-    endhtml = ""
-
-    with open("/app/blog.txt", "r") as file:
-        lines = file.readlines()
-        for item in lines:
-            endhtml += "<div class='col-12 card' style='margin-top: 10px; margin-bottom: 10px;'><div class='card-body'><p>{}</p></div></div>".format(item)
-
-    return render_template("blog.html", blog=endhtml)
-
-@app.route('/createblog', methods=["GET", "POST"])
-def blogcreate():
-
-    if request.method == "POST":
-        content = request.form.get("content")
-
-        #content = content.replace("<", "&lt;")
-        #content = content.replace(">", "&gt;")
-
-        with open("/app/blog.txt", "a") as file:
-            file.write(content + "\n")
-
-        return redirect("/blog")
-    if request.method == "GET":
-        return render_template("create.html")
-
-@app.route('/pagenotfound', methods=["GET", "POST"])
-def notfound():
-
-    text = request.args.get("page")
-
-    return render_template("found.html", text=text)
-
 
 @app.route('/12306', methods=["GET", "POST"])
 def china():
