@@ -6,6 +6,7 @@ services:
     build: ./
     image: buffer-overflow
     container_name: buffer-overflow
-    hostname: BOA
+    hostname: overflow
+    privileged: true
     restart: unless-stopped
 

@@ -3,8 +3,9 @@
 # To start the container instance
 docker compose build
 # docker-compose build
-sudo docker run -it --privileged --name eureka-lab --hostname buffer sec-linux bash
 
+docker compose up
+docker run -it --name buffer --hostname bo --rm --privileged overflow bash
 
 
 
