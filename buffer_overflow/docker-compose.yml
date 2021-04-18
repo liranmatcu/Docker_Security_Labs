@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  # FC29 for buffer overflow attacks
+  buffer-overflow:
+    build: ./
+    image: buffer-overflow
+    container_name: buffer-overflow
+    hostname: BOA
+    restart: unless-stopped
+
