@@ -1,0 +1,5 @@
+https://www.cloudreach.com/en/technical-blog/containerize-this-how-to-use-php-apache-mysql-within-docker-containers/
+
+https://stackoverflow.com/questions/34779894/executing-sql-scripts-on-docker-container
+
+https://www.youtube.com/watch?v=ciNHn38EyRc
