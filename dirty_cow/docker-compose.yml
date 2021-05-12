@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  # Dirty COW attacks
+  cow:
+    build: ./
+    image: dirty-cowow
+    container_name: cow
+    hostname: cow
+    privileged: true
+    stdin_open: true
+    tty: true
