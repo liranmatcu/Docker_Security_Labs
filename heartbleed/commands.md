@@ -1,3 +1,10 @@
+# Start the attacker container image
+docker compose run attacker bash
+# Or
+docker-compose run attacker bash
+
+
+
 docker build -t server .
 
 docker run -d -p 8443:443 server
