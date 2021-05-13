@@ -5,10 +5,12 @@ FROM ubuntu:14.04
 RUN apt-get update
 RUN apt-get install -y build-essential
 RUN apt-get install -y nasm
+
+ADD ./dirtycow-vdso  /dirtycow-vdso
 # RUN apt-get install -y git
 # RUN mkdir /dirtycow-vdso
 # RUN git clone https://github.com/scumjr/dirtycow-vdso.git /dirtycow-vdso
-ADD ./dirtycow-vdso  /dirtycow-vdso
+
 ADD ./c_programs  /c_programs
 
 EXPOSE 5678
