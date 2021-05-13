@@ -5,4 +5,4 @@ docker compose build
 # docker-compose build
 
 # Start the container
-docker compose run cow
+docker compose run d-cow

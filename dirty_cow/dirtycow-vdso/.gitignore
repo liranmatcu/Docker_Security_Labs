@@ -1,0 +1,6 @@
+*.o
+*.h
+payload
+0xdeadbeef
+tools/dump_vdso
+tools/test_payload

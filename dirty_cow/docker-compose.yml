@@ -2,11 +2,11 @@ version: "3"
 
 services:
   # Dirty COW attacks
-  cow:
+  d-cow:
     build: ./
     image: dirty-cowow
-    container_name: cow
-    hostname: cow
+    container_name: d-cow
+    hostname: d-cow
     privileged: true
     stdin_open: true
     tty: true
