@@ -8,5 +8,5 @@ docker compose build
 docker compose run d-cow bash
 
 # Next
-cd /dirtycow-vdso
+cd /dirtycow
 make
