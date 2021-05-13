@@ -16,7 +16,7 @@ services:
 
   # Attacker using ping and curl to web-server
   attacker:
-    image: metasploit-framework
+    image: metasploitframework/metasploit-framework
     container_name: metasploit-attacker
     hostname: attacker
     stdin_open: true
