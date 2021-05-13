@@ -8,13 +8,11 @@ services:
     container_name: web-server-https
     hostname: web
     ports:
-     - "80:80"
-    cap_add:
-     - NET_ADMIN
+     - "8443:443"
     privileged: true 
     restart: unless-stopped
 
-  # Attacker using ping and curl to web-server
+  # Attacker using nmap and metasploit
   attacker:
     image: metasploitframework/metasploit-framework
     container_name: metasploit-attacker
