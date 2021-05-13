@@ -3,18 +3,18 @@ docker compose run attacker bash
 # Or
 docker-compose run attacker bash
 
+# Start web server
+docker-compose up -d web-server
 
 
-docker build -t server .
+# Scan heartbleed vulnerability from the attacker container
+nmap -sV -p 443 --script=ssl-heartbleed web-server
+nmap -sV -p 443 --script=ssl-heartbleed IP-adder-of-web-server
 
-docker run -d -p 8443:443 server
+# Scan from local machine not container
+sudo nmap -sV -p 8443 --script=ssl-heartbleed 127.0.0.1
 
-docker run --rm -it -v ~/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data remnux/metasploit
 
-
-docker ps
-
-docker inspect <container-id> | grep IPAddress
 
 msfconsole -q
 
