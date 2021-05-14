@@ -168,4 +168,11 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY parallelization-poodle.py ./
+
+COPY . .
+
 CMD ["python3"]

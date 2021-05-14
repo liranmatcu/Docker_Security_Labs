@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY parallelization-poodle.py ./
+COPY ../code/parallelization-poodle.py ./
 
-COPY . .
+COPY ../code/ ./
 
 CMD [ "python", "./parallelization-poodle.py" ]

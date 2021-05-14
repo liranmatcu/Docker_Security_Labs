@@ -2,12 +2,21 @@ version: "3"
 
 services:
 
-  # Web service 
+  # Python3  
   poodle:
-    build: ./python3-server
+    build: ./python3-alone
     container_name: python-poodle
     hostname: poodle
     ports:
      - "8080:80"
+    stdin_open: true
+    tty: true
+
+  # Python3 on alpine
+  poodle2:
+    image: python:3.9-alpine3.13
+    # build: ./python3-alpine
+    container_name: python-alpine
+    hostname: poodle2
     stdin_open: true
     tty: true
