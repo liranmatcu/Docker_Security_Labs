@@ -24,9 +24,9 @@ RUN cd /etc/apache2/mods-enabled && ln -s ../mods-available/cgi.load
 RUN chown www-data:www-data /usr/lib/cgi-bin/stats
 RUN chmod u+x /usr/lib/cgi-bin/stats
 
-ADD demo.cgi /usr/lib/cgi-bin/
-RUN chown www-data:www-data /usr/lib/cgi-bin/demo.cgi
-RUN chmod u+x /usr/lib/cgi-bin/demo.cgi
+ADD info /usr/lib/cgi-bin/
+RUN chown www-data:www-data /usr/lib/cgi-bin/info
+RUN chmod u+x /usr/lib/cgi-bin/info
 
 # Add read privilege to others on shadow file
 # RUN chmod +r /etc/shadow
