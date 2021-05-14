@@ -14,7 +14,7 @@ services:
     stdin_open: true
     tty: true
 
-  # Python3 on alpine
+  # Python3 on Alpine
   poodle2:
     image: python:3.9-alpine3.13
     container_name: python-alpine
