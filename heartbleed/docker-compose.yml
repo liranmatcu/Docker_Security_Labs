@@ -12,10 +12,9 @@ services:
     privileged: true 
     restart: unless-stopped
 
-  # Scanner using nmap
-  scanner:
+  # Nmap scanner
+  nmap:
     image: instrumentisto/nmap
     container_name: nmap-scanner
-    hostname: scanner
     stdin_open: true
     tty: true
