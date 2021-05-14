@@ -2,11 +2,10 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+COPY ./code/ ./
+# COPY ./python3-alone/requirements.txt ./
+# COPY ./code/parallelization-poodle.py ./
+
 RUN pip install --no-cache-dir -r requirements.txt
-
-COPY ../code/parallelization-poodle.py ./
-
-COPY ../code/ ./
 
 CMD [ "python", "./parallelization-poodle.py" ]

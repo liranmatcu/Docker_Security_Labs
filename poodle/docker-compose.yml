@@ -4,7 +4,9 @@ services:
 
   # Python3  
   poodle:
-    build: ./python3-alone
+    build: 
+      context: ./
+      dockerfile: ./python3-alone/Dockerfile
     container_name: python-poodle
     hostname: poodle
     ports:
@@ -15,8 +17,9 @@ services:
   # Python3 on alpine
   poodle2:
     image: python:3.9-alpine3.13
-    # build: ./python3-alpine
     container_name: python-alpine
     hostname: poodle2
+    volumes:
+       - ./code:/poolde
     stdin_open: true
     tty: true
