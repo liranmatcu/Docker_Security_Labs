@@ -6,7 +6,9 @@ sudo nmap -sV -p 8443 --script=ssl-heartbleed 127.0.0.1
 
 
 # Scan heartbleed vulnerability from the attacker container
+wget https://svn.nmap.org/nmap/scripts/ssl-heartbleed.nse
 docker run --rm -it instrumentisto/nmap -sV -p 8443 --script=ssl-heartbleed 127.0.0.1
+docker run --rm -it instrumentisto/nmap -sV -p 8443 --script ./ssl-heartbleed 127.0.0.1
 
 
 # Run Metasploit console in a container
