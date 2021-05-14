@@ -10,7 +10,7 @@ ENV LC_ALL C.UTF-8
 RUN apt-get update -y && apt-get dist-upgrade -y
 
 # Install packages
-RUN apt-get install -y wget apache2 libtinfo5 binutils
+RUN apt-get install -y wget apache2 libtinfo5 binutils gcc
 
 # Install vulnerable bash version from wayback/snapshot archive
 RUN wget http://snapshot.debian.org/archive/debian/20130101T091755Z/pool/main/b/bash/bash_4.2%2Bdfsg-0.1_amd64.deb -O /tmp/bash_4.2+dfsg-0.1_amd64.deb && \
