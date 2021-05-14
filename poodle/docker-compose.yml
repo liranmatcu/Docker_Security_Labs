@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+
+  # Web service 
+  poodle:
+    build: ./python3-server
+    container_name: python-poodle
+    hostname: poodle
+    ports:
+     - "8080:80"
+    stdin_open: true
+    tty: true
