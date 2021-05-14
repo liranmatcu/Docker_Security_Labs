@@ -30,6 +30,8 @@ RUN chmod u+x /usr/lib/cgi-bin/info
 # RUN chown root /usr/lib/cgi-bin/info
 # RUN chmod 4755 /usr/lib/cgi-bin/info
 
+ADD cat.c /usr/lib/cgi-bin/
+
 # Add read privilege to others on shadow file
 # RUN chmod +r /etc/shadow
 
