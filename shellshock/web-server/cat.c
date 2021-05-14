@@ -3,5 +3,5 @@
 void int main()
 {
 	setuid(geteuid());
-	system("/bin/cat /etc/shadow")
+	system("/bin/cat /etc/shadow");
 }
