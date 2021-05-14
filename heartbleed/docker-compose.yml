@@ -38,5 +38,5 @@ services:
 
   volumes:
     pg_data:
-    driver: local
+      driver: local
  
