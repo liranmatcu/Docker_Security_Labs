@@ -40,3 +40,11 @@ services:
       # mount the configuration folder or file
       - ./nginx/nginx.conf:/etc/nginx/conf.d/sites-available/default
       # - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
+
+
+  # Nmap scanner
+  nmap:
+    image: instrumentisto/nmap
+    container_name: nmap-scanner
+    stdin_open: true
+    tty: true   
