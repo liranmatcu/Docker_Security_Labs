@@ -18,7 +18,7 @@ server {
 	ssl_prefer_server_ciphers   on;
 
 	location / {
-	        add_header Set-Cookie 'auth=@mpgn_x64; HttpOnly';
+	        add_header Set-Cookie 'auth=@eureka; HttpOnly';
                 add_header Last-Modified "";
                 keepalive_timeout 0;
                 try_files $uri $uri/ =404;

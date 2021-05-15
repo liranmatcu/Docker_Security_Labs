@@ -23,3 +23,20 @@ services:
        - ./code:/poolde
     stdin_open: true
     tty: true
+
+  # Web service: Nginx:alpine
+  web-server:
+    image: nginx:alpine
+    container_name: web-nginx
+    hostname: web
+    ports:
+     - "80:80"
+     - "443:443"
+    restart: unless-stopped
+    tty: true
+    volumes:
+      # mount the document root to be served
+      - ./nginx/poodle.js:/usr/share/nginx/html/index.html
+      # mount the configuration folder or file
+      - ./nginx/nginx-conf:/etc/nginx/conf.d/sites-available/default
+      # - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
