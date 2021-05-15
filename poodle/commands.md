@@ -18,7 +18,7 @@ python3 poodle-poc.py
 
 
 
-
+docker-compose up web-server
 
 # Scan poodle vulnerability from the attacker container
 docker-compose run nmap -sV -p 443 --script=ssl-poodle web-server
