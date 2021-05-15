@@ -17,11 +17,16 @@ pip install -r requirements.txt
 python3 poodle-poc.py
 
 
-# Use poodle-exploit.py
-python3 poodle-exploit.py 127.0.0.1 4443 web-server 443 --start-block 46 --stop-block 50
 
-https://github.com/mpgn/poodle-PoC
 
 
 # Scan poodle vulnerability from the attacker container
 docker-compose run nmap -sV -p 443 --script=ssl-poodle web-server
+
+
+
+# Use poodle-exploit.py
+docker-compose run --rm poodle bash
+python3 poodle-exploit.py 127.0.0.1 4443 web-server 443 --start-block 46 --stop-block 50
+
+https://github.com/mpgn/poodle-PoC

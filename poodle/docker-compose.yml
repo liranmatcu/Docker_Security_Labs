@@ -26,20 +26,24 @@ services:
 
   # Web service: Nginx:alpine
   web-server:
-    image: nginx:alpine
+    image: nginx:1.14.0-alpine
+    # image: nginx:1.13.0-alpine
+    # image: nginx:1.16.0-alpine # Fixed the POODLE vulnerability
     container_name: web-nginx
     hostname: web
     ports:
      - "80:80"
      - "443:443"
-    restart: unless-stopped
+    # restart: unless-stopped
     tty: true
     volumes:
       # mount the document root to be served
       - ./nginx/poodle.js:/usr/share/nginx/html/index.html
       # mount the configuration folder or file
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/sites-available/default
-      # - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
+      # - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
+      - ./nginx/certs/server.crt:/etc/nginx/ssl/cert.pem
+      - ./nginx/certs/server.key:/etc/nginx/ssl/cert.key
 
 
   # Nmap scanner
