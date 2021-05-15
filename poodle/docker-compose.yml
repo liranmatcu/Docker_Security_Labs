@@ -9,8 +9,8 @@ services:
       dockerfile: ./python3-alone/Dockerfile
     container_name: python-poodle
     hostname: poodle
-    ports:
-     - "8080:80"
+    # ports:
+    #  - "8080:80"
     stdin_open: true
     tty: true
 
@@ -38,5 +38,5 @@ services:
       # mount the document root to be served
       - ./nginx/poodle.js:/usr/share/nginx/html/index.html
       # mount the configuration folder or file
-      - ./nginx/nginx-conf:/etc/nginx/conf.d/sites-available/default
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/sites-available/default
       # - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
