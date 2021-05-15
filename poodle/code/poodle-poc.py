@@ -134,7 +134,7 @@ def run(SECRET):
 
 if __name__ == '__main__':  
 
-    print("{-} Poodle Proof of Concept\n")
+    print("{-} Begin Poodle Proof of Concept\n")
 
     SECRET = "This is a PoC of the Poodle Attack against SSL/TLS"
     print("[+] Secret plaintext :", SECRET)
@@ -149,4 +149,4 @@ if __name__ == '__main__':
     print("")
     run(SECRET)   
 
-    print("\n{-} Poodle PoC github.com/mpgn/Poodle-PoC")
+    print("\n{-} End Poodle Proof of Concept")
