@@ -10,3 +10,12 @@ services:
     privileged: true
     stdin_open: true
     tty: true
+
+  d-c0w:
+    build: ./dirtyc0w
+    image: dirty-c0w
+    container_name: d-c0w
+    hostname: d-c0w
+    # privileged: true
+    # stdin_open: true
+    # tty: true
