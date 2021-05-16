@@ -30,3 +30,8 @@ docker-compose run --rm poodle bash
 python3 poodle-exploit.py 127.0.0.1 4443 web-server 443 --start-block 46 --stop-block 50
 
 https://github.com/mpgn/poodle-PoC
+
+NODE_OPTIONS=--tls-min-v1.0 /Applications/Postman.app/Contents/MacOS/Postman
+
+curl -v https://127.0.0.1
+openssl s_client -connect 127.0.0.1:443
