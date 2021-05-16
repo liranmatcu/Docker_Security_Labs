@@ -1,8 +1,5 @@
 /*
     Poodle poc
-    Author: @mpgn_x64 / https://github.com/mpgn
-    Github: https://github.com/mpgn/poodle-PoC
-    Date: march 2018
 */
 
 var payload = ""
