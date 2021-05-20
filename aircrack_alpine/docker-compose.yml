@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+
+  # Aircrack-ng based on Alpine
+  aircrack:
+    build: .
+    container_name: aircrack-ng
+    hostname: Eureka
+    volumes:
+       - ./data:/opt
+    privileged: true 
+    stdin_open: true
+    tty: true

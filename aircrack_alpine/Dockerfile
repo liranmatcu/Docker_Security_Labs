@@ -1,5 +1,5 @@
-FROM alpine:3.10.2
-WORKDIR /root
+FROM alpine:3.12
+WORKDIR /opt
 
 # Change environmental variables
 ENV PS1="\u@\h: \w $ "
