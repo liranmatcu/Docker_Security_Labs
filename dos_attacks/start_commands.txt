@@ -1,4 +1,0 @@
-git clone https://github.com/liranmatcu/Docker_Security_Labs.git
-cd  Docker_Security_Labs/dos_attacks/
-
-docker-compose up -d
