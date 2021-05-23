@@ -5,6 +5,11 @@ cd  Docker_Security_Labs/dos_attacks/
 docker-compose up -d
 
 
+# tcpdump
+docker build -t tcpdump .
+docker run -it --privileged --net=host --rm tcpdump -i any -vvnn port 80
+
+
 # DDoS Blackhole is a real-time distributed denial of service (DDoS) detection and mitigation tool. The software receives a continuous stream of telemetry from standard sFlow agents embedded in network devices, detects distributed denial of service attacks (DDoS), and pushes BGP remote triggered blackhole messages to block the attack upstream.
 
 https://hub.docker.com/r/sflow/ddos-blackhole
