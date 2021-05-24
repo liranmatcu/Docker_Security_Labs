@@ -1,0 +1,10 @@
+FROM alpine:3.13
+
+RUN apk update && \
+  apk add --no-cache snort bash && \
+  echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
+  rm -f /tmp/* /etc/apk/cache/*
+
+
+# ENTRYPOINT ["snort"]
+# CMD ["--help"]

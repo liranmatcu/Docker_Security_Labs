@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+
+  # Pentester 
+  pentester:
+    build: ./pentester
+    container_name: pentester
+    hostname: pentester
+    privileged: true 
+    stdin_open: true
+    tty: true
+
+  # snort 
+  snort:
+    # build: ./snort
+    build:
+      context: ./snort
+      dockerfile: Dockerfile-Alpine
+    container_name: snort
+    hostname: snort
+    volumes:
+     - ./snort/etc:/etc/snort/
+    cap_add:
+      - NET_ADMIN
+    stdin_open: true
+    tty: true
+
+
+
+  # Web service 
+  # web-server:
+  #   build: ./web-server
+  #   container_name: web-server
+  #   hostname: web
+  #   ports:
+  #    - "8080:80"
+  #   privileged: true 
+  #   restart: unless-stopped
