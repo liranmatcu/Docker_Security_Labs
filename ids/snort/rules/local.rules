@@ -19,4 +19,11 @@
 # LOCAL RULES
 #-------------
 
+
+# Ping alert
 alert icmp any any -> any any (msg:"Pinging...";sid:1000004;)
+
+
+# SSH
+# alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:"Possible SSH brute forcing!"; flags: S+; sid:10000001; rev: 1;)
+alert tcp any any -> $HOME_NET 22 (msg:"Possible SSH brute forcing!"; flags: S+; sid:10000001; rev: 1;)

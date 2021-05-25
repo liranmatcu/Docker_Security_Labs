@@ -10,7 +10,7 @@ nmap snort
 ## tcpdump capture
 tcpdump -i any -vvnn port 80
 
-
+ping snort (ping rule would alert)
 
 
 
@@ -21,6 +21,9 @@ docker-compose run --rm snort bash
 snort -T -i eth0 -c /etc/snort/snort.conf
 ## Run snort
 snort -i eth0 -c /etc/snort/snort.conf
+
+snort -i eth0 -c /etc/snort/snort.conf -A console
+
 ### Add more rules in Step 7 and the /rules folder
 
 Ref:
