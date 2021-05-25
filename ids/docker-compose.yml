@@ -21,6 +21,7 @@ services:
     hostname: snort
     volumes:
      - ./snort/etc:/etc/snort/
+     - ./snort/rules:/opt/snort/rules
     cap_add:
       - NET_ADMIN
     stdin_open: true

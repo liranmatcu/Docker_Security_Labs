@@ -17,5 +17,12 @@ tcpdump -i any -vvnn port 80
 # Snort
 docker-compose build snort
 docker-compose run --rm snort bash
+## Testing configuration
 snort -T -i eth0 -c /etc/snort/snort.conf
+## Run snort
+snort -i eth0 -c /etc/snort/snort.conf
+### Add more rules in Step 7 and the /rules folder
 
+Ref:
+https://github.com/John-Lin/docker-snort
+https://hub.docker.com/r/linton/docker-snort/
