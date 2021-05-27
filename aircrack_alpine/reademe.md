@@ -8,3 +8,5 @@ docker-compose run --rm aircrack bash
 
 # Crack WPA-PSK key
 aircrack-ng -a 2 -w ./WPA/password-file.txt ./WPA/4-way-handshake.pcap
+
+# Cannot access Mac's wireless NIC yet
