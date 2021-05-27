@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+
+  # Openwrt
+  openwrt:
+    build: .
+    container_name: Eureka-Openwrt
+    hostname: Eureka
+    # volumes:
+    #    - ./data:/opt
+    ports:
+      - 80:80
+      - 443:443
+    privileged: true 
+    stdin_open: true
+    tty: true
