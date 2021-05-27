@@ -3,7 +3,9 @@ https://github.com/openwrt/docker
 https://hub.docker.com/r/openwrtorg/rootfs
 https://openwrt.org/docs/guide-user/virtualization/docker_openwrt_image
 
-# Run OpenWrt within a Docker container 
+# Run our customized OpenWrt image in a Docker container 
+docker-compose run --rm openwrt
+## Basic image with Docker run 
 docker run --rm -it --hostname Eureka openwrtorg/rootfs:x86-64
 ## with web interface
 docker run --rm -it -p 80:80 --hostname Eureka openwrtorg/rootfs:x86-64
@@ -15,4 +17,4 @@ opkg install luci
 
 # To exit from the Docker instance
 exit
-Crtl+D
+Crtl+d or Crtl+c
