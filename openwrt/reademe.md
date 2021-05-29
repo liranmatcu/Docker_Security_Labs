@@ -5,7 +5,9 @@ https://openwrt.org/docs/guide-user/virtualization/docker_openwrt_image
 
 # Run our customized OpenWrt image in a Docker container 
 docker-compose build
-docker-compose run --rm openwrt
+docker run --rm -it -p 80:80 --hostname Eureka eureka-openwrt
+## docker-compose run --rm openwrt 
+## ssh would work, but not http; not 0.0.0.0:80->80/tcp
 
 # Run basic OpenWrt image via Docker run with web interface
 docker run --rm -it -p 80:80 --hostname Eureka openwrtorg/rootfs:x86-64

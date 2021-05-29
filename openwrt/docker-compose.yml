@@ -5,10 +5,9 @@ services:
   # Openwrt
   openwrt:
     build: .
+    image: eureka-openwrt
     container_name: Eureka-Openwrt
     hostname: Eureka
-    # volumes:
-    #    - ./data:/opt
     ports:
       - 80:80
       - 443:443
