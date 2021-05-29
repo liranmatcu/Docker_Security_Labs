@@ -3,6 +3,9 @@ https://github.com/openwrt/docker
 https://hub.docker.com/r/openwrtorg/rootfs
 https://openwrt.org/docs/guide-user/virtualization/docker_openwrt_image
 
+# Run our customized OpenWrt image in a Docker container 
+docker-compose build
+docker-compose run --rm openwrt
 
 # Run basic OpenWrt image via Docker run with web interface
 docker run --rm -it -p 80:80 --hostname Eureka openwrtorg/rootfs:x86-64
@@ -11,9 +14,8 @@ opkg update
 opkg install luci
 ## WPA3 installation
 opkg install wpad-openssl
+## After this step, it is equivalent to docker-compose run
 
-## Run our customized OpenWrt image in a Docker container 
-docker-compose run --rm openwrt
 
 # To exit from the Docker instance
 halt
