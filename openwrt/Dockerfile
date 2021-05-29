@@ -2,9 +2,9 @@ FROM openwrtorg/rootfs:x86-64
 
 USER root
 
-RUN echo "nameserver 8.8.8.8" | tee -a /etc/resolv.conf
+EXPOSE 80
 
-RUN opkg update 
-
-RUN opkg install luci luci-ssl && \
+RUN mkdir /var/lock && \ 
+    opkg update && \
+    opkg install luci luci-ssl && \
     opkg install wpad-openssl
