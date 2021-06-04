@@ -26,6 +26,9 @@ snort -i eth0 -c /etc/snort/snort.conf -A console
 
 ### Add more rules in Step 7 and the /rules folder
 
+### Snort rules download
+https://snort.org/downloads#rules
+
 Ref:
 https://github.com/John-Lin/docker-snort
 https://hub.docker.com/r/linton/docker-snort/
