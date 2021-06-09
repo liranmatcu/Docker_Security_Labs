@@ -1,0 +1,22 @@
+version: '3.0'
+
+services:
+
+  ettercap:
+    build: .
+    image: eureka-ettercap
+    # image: mrecco/ettercap:latest
+    container_name: mitm-ettercap
+    hostname: ettercap
+    command:
+    - "-TbqM"
+    - "arp"
+    - "-oi"
+    - "interface_name"
+    # network_mode: host
+    pid: host
+    privileged: true
+    cap_add:
+    - NET_ADMIN
+    - SYS_ADMIN
+    stop_grace_period: 2s
