@@ -1,0 +1,8 @@
+@@ -18,6 +18,8 @@
+    #include <sys/types.h>
+ #endif
+ 
++#include <sys/types.h>
++
+ #include <ec_stdint.h>
+ #include <ec_queue.h>
