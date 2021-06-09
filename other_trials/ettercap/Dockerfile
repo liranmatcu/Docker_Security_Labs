@@ -87,5 +87,5 @@ RUN apk add --update                        \
 
 ENTRYPOINT ["/usr/local/bin/ettercap"]
 
-# CMD ["ettercap", "-TbqM", "arp" "-i" "ens32"]
-# ettercap -TbqM arp -i ens32
+# CMD ["ettercap", "-TbqM", "arp" "-i" "eth0"]
+# ettercap -TbqM arp -i eth0
