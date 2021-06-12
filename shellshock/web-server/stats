@@ -12,9 +12,9 @@ echo `uptime`
 echo "<br />"
 nets=`/bin/netstat -an 2>/dev/null`
 echo "$nets"
-echo "<br />"
-iost=`/usr/bin/iostat 2>/dev/null`
-echo "$iost"
+# echo "<br />"
+# iost=`/usr/bin/iostat 2>/dev/null`
+# echo "$iost"
 
 /bin/cat << EOM
 </pre>

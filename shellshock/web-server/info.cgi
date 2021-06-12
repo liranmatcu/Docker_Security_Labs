@@ -2,4 +2,7 @@
 
 echo "Content-type: text/plain"
 echo "****** Environment Variables ******"
+echo "<br />"
+# shellenv=`/usr/bin/strings /proc/$$/environ 2>/dev/null`
+# echo "$shellenv"
 /usr/bin/strings /proc/$$/environ

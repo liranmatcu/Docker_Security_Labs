@@ -24,11 +24,16 @@ ADD stats /usr/lib/cgi-bin/
 RUN chown www-data:www-data /usr/lib/cgi-bin/stats
 RUN chmod u+x /usr/lib/cgi-bin/stats
 
-ADD info /usr/lib/cgi-bin/
-RUN chown www-data:www-data /usr/lib/cgi-bin/info
-RUN chmod u+x /usr/lib/cgi-bin/info
-# RUN chown root /usr/lib/cgi-bin/info
-# RUN chmod 4755 /usr/lib/cgi-bin/info
+ADD shell-info /usr/lib/cgi-bin/
+RUN chown www-data:www-data /usr/lib/cgi-bin/shell-info
+RUN chmod u+x /usr/lib/cgi-bin/shell-info
+
+ADD info.cgi /usr/lib/cgi-bin/
+# RUN chown www-data:www-data /usr/lib/cgi-bin/info.cgi
+# RUN chmod u+x /usr/lib/cgi-bin/info.cgi
+RUN chown root /usr/lib/cgi-bin/info.cgi
+RUN chmod 4755 /usr/lib/cgi-bin/info.cgi
+
 
 ADD cat.c /usr/lib/cgi-bin/
 
@@ -47,7 +52,7 @@ RUN echo "user2:123" | chpasswd
 RUN echo "user3:secret" | chpasswd 
 
 # Clean up
-RUN apt-get autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# RUN apt-get autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Expose the port for usage with the docker -P switch
 EXPOSE 80
