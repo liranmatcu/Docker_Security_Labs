@@ -19,8 +19,10 @@ RUN wget http://snapshot.debian.org/archive/debian/20130101T091755Z/pool/main/b/
 
 # Setup vulnerable web content
 ADD index.html /var/www/html/
-ADD stats /usr/lib/cgi-bin/
+
 RUN cd /etc/apache2/mods-enabled && ln -s ../mods-available/cgi.load
+
+ADD stats /usr/lib/cgi-bin/
 RUN chown www-data:www-data /usr/lib/cgi-bin/stats
 RUN chmod u+x /usr/lib/cgi-bin/stats
 
