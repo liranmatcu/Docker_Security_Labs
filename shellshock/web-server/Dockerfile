@@ -10,7 +10,7 @@ ENV LC_ALL C.UTF-8
 RUN apt-get update -y && apt-get dist-upgrade -y
 
 # Install packages
-RUN apt-get install -y wget apache2 libtinfo5 binutils gcc
+RUN apt-get install -y wget apache2 libtinfo5 binutils gcc net-tools
 
 # Install vulnerable bash version from wayback/snapshot archive
 RUN wget http://snapshot.debian.org/archive/debian/20130101T091755Z/pool/main/b/bash/bash_4.2%2Bdfsg-0.1_amd64.deb -O /tmp/bash_4.2+dfsg-0.1_amd64.deb && \
@@ -19,8 +19,6 @@ RUN wget http://snapshot.debian.org/archive/debian/20130101T091755Z/pool/main/b/
 
 # Setup vulnerable web content
 ADD index.html /var/www/html/
-
-RUN cd /etc/apache2/mods-enabled && ln -s ../mods-available/cgi.load
 
 ADD stats /usr/lib/cgi-bin/
 RUN chown www-data:www-data /usr/lib/cgi-bin/stats
@@ -36,6 +34,8 @@ ADD cat.c /usr/lib/cgi-bin/
 
 # Add read privilege to others on shadow file
 # RUN chmod +r /etc/shadow
+
+RUN cd /etc/apache2/mods-enabled && ln -s ../mods-available/cgi.load
 
 # Add users and passwords
 RUN echo "root:password" | chpasswd 
