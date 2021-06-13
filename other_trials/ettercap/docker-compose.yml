@@ -8,7 +8,6 @@ services:
     # image: mrecco/ettercap:latest
     container_name: mitm-ettercap
     hostname: ettercap
-    # command: "-TbqM" "arp" "-oi" "eth0"
     command: ["-TbqM", "arp", "-oi", "eth0"]
     pid: host
     privileged: true
