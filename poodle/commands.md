@@ -1,26 +1,24 @@
-# Start python instance
+# Start Python instance
 docker-compose run --rm poodle
 docker-compose run --rm poodle bash
-
-# Launch the attack
+## Launch the attack
 python3 poodle-poc.py
 python3 poodle-fast.py
 
 
-# Or 
+# Or an instance that needs installation
 docker-compose run poodle2 sh
 apk add gcc musl-dev
 cd /poodle
 pip install -r requirements.txt
-
-# Launch the attack
+## Launch the attack
 python3 poodle-poc.py
 
 
 
+# Start the web server container with the vulnerability
 docker-compose up web-server
-
-# Scan poodle vulnerability from the attacker container
+# Scan poodle vulnerability from the nmap container
 docker-compose run nmap -sV -p 443 --script=ssl-poodle web-server
 
 
