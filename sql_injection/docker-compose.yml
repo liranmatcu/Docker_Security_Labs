@@ -28,6 +28,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=injectionAttack
+    volumes:
+      - ./mysql/:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
       

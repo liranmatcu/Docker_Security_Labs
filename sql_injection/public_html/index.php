@@ -1,4 +1,4 @@
-<h1>Welcome to the Demo</h1>
+<h1>Welcome to SQL Injection Demo Site</h1>
 
 <?php 
 function submit() {
