@@ -9,8 +9,12 @@ Notice now in the logs that the apache container and php containers both respond
 php_1     | 172.18.0.4 -  16/Jul/2018:02:09:22 +0000 "GET /index.php" 200
 apache_1  | 172.18.0.1 - - [16/Jul/2018:02:09:22 +0000] "GET / HTTP/1.1" 200 108
 
-# Enter the mysql container to initialize database
+
+
+# Initialize database named injectionAttack on the mysql container
 docker exec -it sql_injection_mysql_1 mysql -u root -p -e "Use injectionAttack; $(cat ./mysql/db-init.sql)"
+## Enter password as when prompted
+
 
 ';-- 
 
