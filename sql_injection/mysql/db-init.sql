@@ -37,13 +37,13 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (id, username, psswd, email, description) VALUES
-	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@tcu.edu', 'All hail the admin!!'),
+	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@eureka.edu', 'Alert! This is the admin!!'),
 	(2, 'bob', '5f4dcc3b5aa765d61d8327deb882cf99', 'bobby123@gmail.com', 'That is some high quality H2O!'),
 	(3, 'batman', '9aeaed51f2b0f6680c4ed4b07fb1a83c', 'batman@wayne-tech.com', 'I am BATMAN'),
-	(4, 'luke', '9aeaed51f2b0f6680c4ed4b07fb1a83c', 'skywalker@tatooine.org', 'I feel the good in you'),
+	(4, 'luke', '9aeaed51f2b0f6680c4ed4b07fb1a83c', 'skywalker@star.org', 'I feel the good in you'),
 	(5, 'alice', 'c93239cae450631e9f55d71aed99e918', 'alice12@gmail.com', 'In wonderland right now :O'),
 	(6, 'voldemort', '856936b417f82c06139c74fa73b1abbe', 'voldemort@hogwarts.edu', 'How dare you! Avada kedavra!'),
 	(7, 'frodo', 'f0f8820ee817181d9c6852a097d70d8d', 'frodo432@rings.org', 'Need to go to Mordor. Like right now!'),
-	(8, 'hodor', 'a55287e9d0b40429e5a944d10132c93e', 'hodor83@winterfell.com', 'Hodor'),
-	(65, 'rambo', 'e52848c0eb863d96bc124737116f23a4', 'rambo@rambo.com', '...');
+	(8, 'sam', 'a55287e9d0b40429e5a944d10132c93e', 'sam@yahoo.com', 'Sam the good guy!'),
+	(65, 'eva', 'e52848c0eb863d96bc124737116f23a4', 'eva@example.com', 'New user');
     
