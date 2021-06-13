@@ -28,6 +28,11 @@ ettercap -T -Q -i eth0 -P dns_spoof -M arp // //
 -M arp: Initiates a MITM ARP poisoning attack to intercept packets between hosts
 // //: Specifies the entire network as the targets
 
+ettercap -T -j /tmp/victims -M arp /10.0.0.1-7/ /10.0.0.10-20/
+Will load the hosts list from /tmp/victims and perform an ARP poisoning attack against the two target. The list will be joined with the target and the resulting list is used for ARP poisoning.
+
+ettercap -T -M arp // //
+Perform the ARP poisoning attack against all the hosts in the LAN. BE CAREFUL !!
 
 Reference:
 https://hub.docker.com/r/mrecco/ettercap
