@@ -20,9 +20,8 @@ docker-compose run --rm snort bash
 ## Testing configuration
 snort -T -i eth0 -c /etc/snort/snort.conf
 ## Run snort
-snort -i eth0 -c /etc/snort/snort.conf
-
 snort -i eth0 -c /etc/snort/snort.conf -A console
+snort -i eth0 -c /etc/snort/snort.conf
 
 ### Add more rules in Step 7 and the /rules folder
 
