@@ -1,4 +1,4 @@
-# Docker Containers for Computer and Network Security Labs
+# Docker Containers for Cybersecurity Education
 Custom-built Docker images and configurations for performing cybersecurity labs.
 
 # Disclaimer
