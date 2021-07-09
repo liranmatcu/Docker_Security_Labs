@@ -1,14 +1,14 @@
 version: "3"
 
 services:
-  # Web service with phishing
-  phishing:
+  # Web service with cookies tracking
+  cookies:
     build: ./
-    image: phishing
-    container_name: phishing
-    hostname: phish
+    image: cookies
+    container_name: cookies
+    hostname: cookies
     ports:
         - "5000:5000"
-        - "5001:5001"
+        - "8080:8080"
     restart: unless-stopped
 
