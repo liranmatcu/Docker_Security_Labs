@@ -12,10 +12,18 @@ services:
     build: ./
     container_name: ciphers
     hostname: sec-linux
-    # networks:
-    #   lab:
-    #     ipv4_address: 10.0.103.2
     volumes:
       - ./local_data:/docker_data    
 
-
+  # Web server with https
+  web-server:
+    build: ./web_server
+    container_name: web
+    hostname: web
+    restart: always
+    # networks:
+    #   lab:
+    #     ipv4_address: 10.0.103.2
+    ports:
+      - "8080:80/tcp"
+      - "443:443/tcp"
