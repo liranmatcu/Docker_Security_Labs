@@ -1,0 +1,21 @@
+version: "3"
+
+# networks:
+#   lab:
+#     ipam:
+#       config:
+#         - subnet: 10.0.103.0/24
+
+services:
+  # Linux for ciphers
+  sec-linux:
+    build: ./
+    container_name: ciphers
+    hostname: sec-linux
+    # networks:
+    #   lab:
+    #     ipv4_address: 10.0.103.2
+    volumes:
+      - ./local_data:/docker_data    
+
+
