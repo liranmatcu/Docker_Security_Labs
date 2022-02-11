@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  # Linux for hash functions
+  hash-linux:
+    build: ./
+    container_name: hash-linux
+    hostname: hash-demo 
+
