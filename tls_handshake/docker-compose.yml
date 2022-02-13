@@ -1,0 +1,34 @@
+version: "3"
+
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
+
+services:
+  tls-server:
+    build: ./server
+    container_name: server
+    hostname: tls-server
+    restart: always
+    privileged: true
+    networks:
+      lab:
+        ipv4_address: 192.168.10.2
+    volumes:
+      - ./server:/tls-data    
+
+  # TLS VPN client
+  tls-client:
+    build: ./client
+    container_name: client
+    hostname: tls-client
+    restart: always
+    privileged: true
+    networks:
+      lab:
+        ipv4_address: 192.168.10.3
+    volumes:
+      - ./client:/tls-data 
+
