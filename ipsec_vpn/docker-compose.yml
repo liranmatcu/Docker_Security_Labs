@@ -2,6 +2,9 @@ version: "3"
 
 networks:
   lab:
+    name: ipc-vpn-network
+    internal: true
+    driver: bridge
     ipam:
       config:
         - subnet: 10.0.103.0/24
@@ -16,8 +19,8 @@ services:
     networks:
       lab:
         ipv4_address: 10.0.103.2
-    volumes:
-      - ./server:/data    
+    # volumes:
+    #   - ./server:/data    
 
   # IPsec client
   ipsec-client:
@@ -29,6 +32,6 @@ services:
     networks:
       lab:
         ipv4_address: 10.0.103.3
-    volumes:
-      - ./client:/data   
+    # volumes:
+    #   - ./client:/data   
 
