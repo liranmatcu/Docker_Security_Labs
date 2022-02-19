@@ -9,7 +9,7 @@ networks:
 services:
   tls-vpn-server:
     build: ./server
-    container_name: tls-server
+    container_name: server
     hostname: tls-server
     restart: always
     privileged: true
@@ -26,7 +26,7 @@ services:
   # TLS VPN client
   tls-vpn-client:
     build: ./client
-    container_name: tls-client
+    container_name: client
     hostname: tls-client
     restart: always
     privileged: true
