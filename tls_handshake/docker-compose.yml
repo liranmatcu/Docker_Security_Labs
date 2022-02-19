@@ -4,7 +4,7 @@ networks:
   lab:
     ipam:
       config:
-        - subnet: 192.168.10.0/24
+        - subnet: 10.0.103.0/24
 
 services:
   tls-server:
@@ -15,7 +15,7 @@ services:
     privileged: true
     networks:
       lab:
-        ipv4_address: 192.168.10.2
+        ipv4_address: 10.0.103.2
     volumes:
       - ./server:/tls-data    
 
@@ -28,7 +28,7 @@ services:
     privileged: true
     networks:
       lab:
-        ipv4_address: 192.168.10.3
+        ipv4_address: 10.0.103.3
     volumes:
       - ./client:/tls-data 
 
