@@ -15,7 +15,7 @@ docker container prune
 
 
 # Notes
-Still having issues when the server and the client are negotiating Security Associations.
+Passed an initial test; need to have a comprehensive test.
 
 
 # docker-compose-yml network related settings
