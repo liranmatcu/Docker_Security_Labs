@@ -14,4 +14,5 @@ apk add openrc && \
 apk add bash
 
 COPY *.conf  /etc
+COPY p1_up_down  /etc
 COPY psk.txt /etc
