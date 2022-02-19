@@ -19,4 +19,3 @@ ADD feistel /root/feistel
 ADD wiki /root/wiki
 ADD rsa /root/rsa
 ADD ecb /root/ecb
-ADD hash /root/hash
