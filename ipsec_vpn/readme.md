@@ -2,11 +2,16 @@
 # Start IPsec-VPN server
 docker-compose run --name server --rm ipsec-server
 ipv4_address: 10.0.103.2
-
+  ## Start IPsec VPN service on server container
+  setkey -f /etc/setkey.conf
+  racoon -Fd
 
 # Start IPsec-VPN client
 docker-compose run --name client --rm ipsec-client
 ipv4_address: 10.0.103.3
+  ## Start IPsec VPN service on client container
+  setkey -f /etc/setkey.conf
+  racoon -Fd
 
 
 # Other helpful commands
