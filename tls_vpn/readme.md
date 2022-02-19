@@ -15,7 +15,7 @@ docker container prune
 
 
 # Notes
-Passed an initial test; need to have a comprehensive test.
+Passed initial tests; need to have a comprehensive test.
 
 
 # docker-compose-yml network related settings
