@@ -15,7 +15,8 @@ docker container prune
 
 
 # Notes
-Still having issues when the server and the client are negotiating Security Associations.
+All the configurations have been updated to match the 10.0.103.0/24 subnet, and IP addresses of server and client.
+Still having issues when the server and the client are trying to negotiate Security Associations.
 
 
 # docker-compose.yml network related settings
