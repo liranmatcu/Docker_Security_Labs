@@ -7,9 +7,9 @@ networks:
         - subnet: 10.0.103.0/24
 
 services:
-  tls-server:
+  tls-vpn-server:
     build: ./server
-    container_name: server
+    container_name: tls-server
     hostname: tls-server
     restart: always
     privileged: true
@@ -20,9 +20,9 @@ services:
       - ./server:/tls-data    
 
   # TLS VPN client
-  tls-client:
+  tls-vpn-client:
     build: ./client
-    container_name: client
+    container_name: tls-client
     hostname: tls-client
     restart: always
     privileged: true
