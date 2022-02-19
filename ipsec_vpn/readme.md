@@ -1,10 +1,10 @@
 
-# Start TLS-VPN server
+# Start IPsec-VPN server
 docker-compose run --name server --rm ipsec-server
 ipv4_address: 10.0.103.2
 
 
-# Start TLS-VPN client
+# Start IPsec-VPN client
 docker-compose run --name client --rm ipsec-client
 ipv4_address: 10.0.103.3
 
