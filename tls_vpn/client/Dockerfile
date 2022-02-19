@@ -16,5 +16,7 @@ apk add vim && \
 apk add openrc && \
 apk add bash
 
-# COPY client.conf /etc/openvpn/
+COPY hosts /etc/
+# copy all the certs and the conf file
 COPY *.* /etc/openvpn/
+# COPY client.conf /etc/openvpn/

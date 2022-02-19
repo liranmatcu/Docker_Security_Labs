@@ -15,3 +15,5 @@ apk add iputils && \
 apk add vim && \
 apk add openrc && \
 apk add bash
+
+COPY server.conf /etc/openvpn/
