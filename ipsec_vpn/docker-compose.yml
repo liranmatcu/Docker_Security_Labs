@@ -1,0 +1,34 @@
+version: "3"
+
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 10.0.103.0/24
+
+services:
+  ipsec-server:
+    build: ./server
+    container_name: server
+    hostname: ipsec-server
+    restart: always
+    privileged: true
+    networks:
+      lab:
+        ipv4_address: 10.0.103.2
+    volumes:
+      - ./server:/data    
+
+  # IPsec client
+  ipsec-client:
+    build: ./client
+    container_name: client
+    hostname: ipsec-client
+    restart: always
+    privileged: true
+    networks:
+      lab:
+        ipv4_address: 10.0.103.3
+    volumes:
+      - ./client:/data   
+
