@@ -7,7 +7,7 @@ ipv4_address: 10.0.103.2
   racoon -Fd
   ## Log onto to server container
   docker exec -it server bash
-  chmod 600 /etc/psk.txt
+  ### no need to "chmod 600 /etc/psk.txt"
 
 # Start IPsec-VPN client
 docker-compose run --name client --rm ipsec-client
@@ -25,9 +25,7 @@ docker container prune
 
 # Notes
 All the configurations have been updated to match the 10.0.103.0/24 subnet, and IP addresses of server and client.
-Still having issues when the server and the client are trying to negotiate Security Associations.
-ERROR: exchange Identity Protection not allowed in any applicable rmconf.
-
+Worked!
 
 
 
