@@ -7,6 +7,7 @@ ipv4_address: 10.0.103.2
   racoon -Fd
   ## Log onto to server container
   docker exec -it server bash
+  chmod 600 /etc/psk.txt
 
 # Start IPsec-VPN client
 docker-compose run --name client --rm ipsec-client

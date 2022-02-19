@@ -16,3 +16,4 @@ apk add bash
 COPY *.conf  /etc
 COPY p1_up_down  /etc
 COPY psk.txt /etc
+RUN chmod 600 /etc/psk.txt
