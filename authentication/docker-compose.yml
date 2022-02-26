@@ -32,6 +32,6 @@ services:
     networks:
       lab:
         ipv4_address: 10.0.103.3
-    volumes:
-      - ./ssh_client/pub_keys:/c_keys   
+    # volumes:
+    #   - ./ssh_client/pub_keys:/c_keys   
 
