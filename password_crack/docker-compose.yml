@@ -1,0 +1,10 @@
+version: "3"
+
+
+services:
+  # Linux for password cracking
+  password-crack-linux:
+    build: ./
+    container_name: password-crack
+    hostname: Linux  
+
