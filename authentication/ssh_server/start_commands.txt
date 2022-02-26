@@ -1,5 +1,0 @@
-git clone https://github.com/liranmatcu/Docker_Security_Labs.git
-cd  Docker_Security_Labs/authentication/ssh_server
-
-docker build -t ssh-server .
-docker run --name server --hostname server --rm ssh-server
