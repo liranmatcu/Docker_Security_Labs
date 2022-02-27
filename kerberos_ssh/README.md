@@ -38,9 +38,22 @@ docker cp ./ssh-server.keytab ssh-server:/etc/krb5.keytab
 
 
 docker cp ./student.keytab ssh-client:/student.keytab
-kinit sshuser -k -t student.keytab
+kinit student -k -t student.keytab
 
 klist
+
+[libdefaults]
+    default_realm = EUREKA.LABS
+    forwardable = TRUE
+[realms]
+        EUREKA.LABS = {
+                kdc_ports = 88,750
+                kadmind_port = 749
+                kdc = host.docker.internal
+                admin_server = host.docker.internal
+        }
+[domain_realm]
+        host.docker.internal = EUREKA.LABS
 
 
 
