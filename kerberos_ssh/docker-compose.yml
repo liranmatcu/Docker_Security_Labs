@@ -25,6 +25,8 @@ services:
       - "749:749"
       - "88:88/udp"  
 
+
+
   # kdc-ssh-server
   kdc-ssh-server:
     build: ./kdc-ssh-server
