@@ -1,0 +1,4 @@
+127.0.0.1	localhost
+10.0.103.4  ssh-client
+10.0.103.3  ssh-server
+10.0.103.2  kdc-server

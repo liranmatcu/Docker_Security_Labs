@@ -51,7 +51,7 @@ klist
                 kdc_ports = 88,750
                 kadmind_port = 749
                 kdc = kdc-server
-                admin_server = hkdc-server
+                admin_server = kdc-server
         }
         
 [domain_realm]

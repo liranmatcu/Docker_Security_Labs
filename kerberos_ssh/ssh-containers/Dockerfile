@@ -11,6 +11,10 @@ RUN apt-get -qq clean
 
 # configuration for the SSH server
 COPY sshd_config /etc/ssh/sshd_config
+
 # configuration for the SSH client
 COPY ssh_config /etc/ssh/ssh_config 
 
+# For both
+COPY krb5.conf /etc/krb5.conf
+COPY hosts /etc/hosts
