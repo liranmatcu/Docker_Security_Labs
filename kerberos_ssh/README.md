@@ -5,4 +5,8 @@ This container is a simplified version of [docker-kerberos](https://github.com/i
 docker-compose up kdc-server
 
 ## Usage
-Once the container started, switch into the container `docker exec -it kdc-server_kdc-kadmin_1 /bin/bash`, and use `kadmin.local` for the KDC amdmin interafce. From there you can start adding principals and keytabs. 
+Once the container started, switch into the container 
+docker exec -it kdc-server bash
+
+Use `kadmin.local` for the KDC amdmin interafce. From there you can start adding principals and keytabs. 
+
