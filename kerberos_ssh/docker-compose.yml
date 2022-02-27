@@ -26,6 +26,27 @@ services:
       - "88:88/udp"  
 
 
+  ssh-server:
+    build: ./ssh-containers
+    hostname: ssh-server
+    container_name: ssh-server
+    ports:
+      - "2222:22"
+    entrypoint: /usr/sbin/sshd -D
+    networks:
+      lab:
+        ipv4_address: 10.0.103.3
+
+  ssh-client:
+    hostname: ssh-client
+    container_name: ssh-client
+    build: ./ssh-containers
+    entrypoint: /bin/bash 
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    networks:
+      lab:
+        ipv4_address: 10.0.103.4
 
   # kdc-ssh-server
   kdc-ssh-server:
@@ -36,7 +57,7 @@ services:
     privileged: true
     networks:
       lab:
-        ipv4_address: 10.0.103.3
+        ipv4_address: 10.0.103.5
     volumes:
       # This is needed otherwise there won't be enough entropy to generate a new kerberos realm
       - /dev/urandom:/dev/random
