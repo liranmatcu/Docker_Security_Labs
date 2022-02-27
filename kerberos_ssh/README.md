@@ -10,3 +10,15 @@ docker exec -it kdc-server bash
 
 Use `kadmin.local` for the KDC amdmin interafce. From there you can start adding principals and keytabs. 
 
+kadmin.local:  listprincs
+K/M@EUREKA.EDU
+kadmin/admin@EUREKA.EDU
+kadmin/changepw@EUREKA.EDU
+kadmin/kdc-server@EUREKA.EDU
+krbtgt/EUREKA.EDU@EUREKA.EDU
+noPermissions@EUREKA.EDU
+
+addprinc -randkey host/ssh-server@EUREKA.EDU
+ktadd -k /sshserver.keytab host/ssh-server@EUREKA.EDU
+
+addprinc -randkey sshuser
