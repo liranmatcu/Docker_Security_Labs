@@ -45,13 +45,15 @@ klist
 [libdefaults]
     default_realm = EUREKA.LABS
     forwardable = TRUE
+
 [realms]
         EUREKA.LABS = {
                 kdc_ports = 88,750
                 kadmind_port = 749
-                kdc = host.docker.internal
-                admin_server = host.docker.internal
+                kdc = kdc-server
+                admin_server = hkdc-server
         }
+        
 [domain_realm]
         host.docker.internal = EUREKA.LABS
 
