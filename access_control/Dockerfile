@@ -1,7 +1,7 @@
 FROM alpine:3.10.2
 CMD ["/bin/bash"]
 
-RUN apk update && apk add bash acl zsh iputils net-tools gcc vim which && \
+RUN apk update && apk add bash shadow acl zsh iputils net-tools gcc vim which && \
   echo "root:password" | chpasswd && \
   adduser -D -s /bin/bash student && \
   echo "student:password" | chpasswd && \
