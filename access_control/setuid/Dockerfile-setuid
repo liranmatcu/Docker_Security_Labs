@@ -1,0 +1,16 @@
+FROM amazonlinux:2018.03.0.20220315.0
+CMD ["/bin/bash"]
+
+RUN yum -y install gcc zsh shadow-utils util-linux && \
+  useradd student && \
+  echo 'export PS1="\u@suid: \W $ "' >> /root/.bashrc && \
+  echo 'export PS1="\u@suid: \W $ "' >> /home/student/.profile && \
+  echo "alias ll='ls -al'" >> /root/.bashrc && \
+  echo "alias c='clear'" >> /root/.bashrc && \
+  echo "alias ll='ls -al'" >> /home/student/.profile && \
+  echo "alias c='clear'" >> /home/student/.profile && \
+  sed -i s/export\ PS1.*// /etc/profile && \
+  echo export PS1=\"\\u@\\h:\\W \$ \" >> /etc/profile 
+
+COPY *.c /tmp
+
