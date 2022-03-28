@@ -14,7 +14,7 @@ services:
       context: ./setuid
       dockerfile: Dockerfile-setuid
     image: setuid
-    container_name: setuid
+    container_name: setuid-exploit
     hostname: setuid
     stdin_open: true
     tty: true
