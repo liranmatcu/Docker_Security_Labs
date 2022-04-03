@@ -37,3 +37,13 @@ services:
     hostname: attacker-2
     stdin_open: true
     tty: true
+
+# tcpdump
+  tcpdump:
+    build: ./tcpdump
+    container_name: tcpdump
+    hostname: tcpdump
+    profiles: ["tcpdump"]
+    privileged: true
+    stdin_open: true
+    tty: true
