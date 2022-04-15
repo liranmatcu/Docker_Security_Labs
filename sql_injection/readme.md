@@ -12,7 +12,7 @@ apache_1  | 172.18.0.1 - - [16/Jul/2018:02:09:22 +0000] "GET / HTTP/1.1" 200 108
 
 
 
-# Enter differnt queries
+# Enter different queries
 
 ';-- 
 
