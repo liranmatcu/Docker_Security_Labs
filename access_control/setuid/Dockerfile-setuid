@@ -12,5 +12,5 @@ RUN yum -y install gcc zsh shadow-utils util-linux vi procps && \
   sed -i s/export\ PS1.*// /etc/profile && \
   echo export PS1=\"\\u@\\h:\\W \$ \" >> /etc/profile 
 
-COPY *.c /tmp
+COPY *.c /tmp/
 
