@@ -1,44 +1,64 @@
-version: "3"
+version: '3.7'
 
 services:
-    # Ethereum Geth
-    geth:
-    image: ethereum/client-go
-    command: --datadir=/root/.ethereum/devchain --nodekeyhex=091bd6067cb4612df85d9c1ff85cc47f259ced4d4cd99816b14f35650f59c322 --rpcapi "db,personal,eth,net,web3" --rpccorsdomain='*' --networkid=1234 --rpc --rpcaddr="0.0.0.0" init=/root/files/genesis.json --mine
-    volumes:
-      - ./files/password:/root/files/password:ro
-      - ./files/genesis.json:/root/files/genesis.json:ro
-      - ./files/keystore:/root/.ethereum/devchain/keystore:rw
+  geth-bootnode:
+    hostname: geth-bootnode
+    env_file:
+      - .env
+    image: geth-client
+    build:
+      context: .
+      args:
+        - ACCOUNT_PASSWORD=${ACCOUNT_PASSWORD}
+    command:
+      --nodekeyhex="b0ac22adcad37213c7c565810a50f1772291e7b0ce53fb73e7ec2a3c75bc13b5"
+      --nodiscover
+      --ipcdisable
+      --networkid=${NETWORK_ID}
+      --netrestrict="172.16.254.0/28"
+    networks:
+      priv-eth-net:
+
+  geth-rpc-endpoint:
+    hostname: geth-rpc-endpoint
+    env_file:
+      - .env
+    image: geth-client
+    depends_on:
+      - geth-bootnode    
+    command:
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@geth-bootnode:30303"
+      --allow-insecure-unlock
+      --http
+      --http.addr="0.0.0.0"
+      --http.api="eth,web3,net,admin,personal"
+      --http.corsdomain="*"
+      --networkid=${NETWORK_ID}
+      --netrestrict="172.16.254.0/28"
     ports:
-      - "30303:30303"
-      - "30303:30303/udp"
       - "8545:8545"
+    networks:
+      priv-eth-net:
 
-  # # Web service: Nginx:alpine
-  # web-server:
-  #   image: nginx:1.14.0-alpine
-  #   # image: nginx:1.13.0-alpine
-  #   # image: nginx:1.16.0-alpine # Fixed the POODLE vulnerability
-  #   container_name: web-nginx
-  #   hostname: web
-  #   ports:
-  #    - "80:80"
-  #    - "443:443"
-  #   # restart: unless-stopped
-  #   tty: true
-  #   volumes:
-  #     # mount the document root to be served
-  #     - ./nginx/poodle.js:/usr/share/nginx/html/index.html
-  #     # mount the configuration folder or file
-  #     # - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-  #     - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
-  #     - ./nginx/certs/server.crt:/etc/nginx/ssl/cert.pem
-  #     - ./nginx/certs/server.key:/etc/nginx/ssl/cert.key
+  geth-miner:
+    hostname: geth-miner
+    env_file:
+      - .env
+    image: geth-client
+    depends_on:
+      - geth-bootnode
+    command:
+      --bootnodes="enode://af22c29c316ad069cf48a09a4ad5cf04a251b411e45098888d114c6dd7f489a13786620d5953738762afa13711d4ffb3b19aa5de772d8af72f851f7e9c5b164a@geth-bootnode:30303"
+      --mine
+      --miner.threads=1
+      --networkid=${NETWORK_ID}
+      --netrestrict="172.16.254.0/28"
+    networks:
+      priv-eth-net:
 
-
-  # # Nmap scanner
-  # nmap:
-  #   image: instrumentisto/nmap
-  #   container_name: nmap-scanner
-  #   stdin_open: true
-  #   tty: true   
+networks:
+  priv-eth-net:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.16.254.0/28

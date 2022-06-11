@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+    # Ethereum Geth
+    geth:
+    image: ethereum/client-go
+    command: --datadir=/root/.ethereum/devchain --nodekeyhex=091bd6067cb4612df85d9c1ff85cc47f259ced4d4cd99816b14f35650f59c322 --rpcapi "db,personal,eth,net,web3" --rpccorsdomain='*' --networkid=1234 --rpc --rpcaddr="0.0.0.0" init=/root/files/genesis.json --mine
+    volumes:
+      - ./files/password:/root/files/password:ro
+      - ./files/genesis.json:/root/files/genesis.json:ro
+      - ./files/keystore:/root/.ethereum/devchain/keystore:rw
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8545:8545"
+
+  # # Web service: Nginx:alpine
+  # web-server:
+  #   image: nginx:1.14.0-alpine
+  #   # image: nginx:1.13.0-alpine
+  #   # image: nginx:1.16.0-alpine # Fixed the POODLE vulnerability
+  #   container_name: web-nginx
+  #   hostname: web
+  #   ports:
+  #    - "80:80"
+  #    - "443:443"
+  #   # restart: unless-stopped
+  #   tty: true
+  #   volumes:
+  #     # mount the document root to be served
+  #     - ./nginx/poodle.js:/usr/share/nginx/html/index.html
+  #     # mount the configuration folder or file
+  #     # - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  #     - ./nginx/ssl.conf:/etc/nginx/conf.d/ssl.conf
+  #     - ./nginx/certs/server.crt:/etc/nginx/ssl/cert.pem
+  #     - ./nginx/certs/server.key:/etc/nginx/ssl/cert.key
+
+
+  # # Nmap scanner
+  # nmap:
+  #   image: instrumentisto/nmap
+  #   container_name: nmap-scanner
+  #   stdin_open: true
+  #   tty: true   
