@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  pse:
+    build: ./
+    entrypoint: "node"
+    command:
+      - "-i"
+      - "-e"
+      - "const score = require('zxcvbn')"
+
+    # No network allowed
+    network_mode: "none"
+
+    # you don't want any persistence or connection to your host system
+    volumes: []
+
+    hostname: zxcvbn
+
