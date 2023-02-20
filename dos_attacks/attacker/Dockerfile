@@ -1,4 +1,4 @@
-FROM alpine:3.10.2
+FROM alpine:latest
 
 RUN apk add bash iputils net-tools curl && \
   apk add hping3 --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
