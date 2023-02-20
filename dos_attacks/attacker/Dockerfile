@@ -1,7 +1,7 @@
 FROM alpine:3.10.2
 
 RUN apk add bash iputils net-tools curl && \
-  apk add hping3 --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
+  apk add hping3 --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
   echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
   apk add python3
 
