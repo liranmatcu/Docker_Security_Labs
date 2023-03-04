@@ -13,7 +13,7 @@ https://github.com/ethereum/go-ethereum
 https://hub.docker.com/r/ethereum/client-go/
 
 
-# Start ethereum client
+# Start Ethereum client
 Ref: https://geth.ethereum.org/docs/install-and-build/installing-geth
 docker pull ethereum/client-go
 docker run -it -p 30303:30303 ethereum/client-go
@@ -25,7 +25,7 @@ docker run -it -p 30303:30303 ethereum/client-go
 30303 TCP and UDP, used by the P2P protocol running the network
 
 ## Volumes
-Note, if you are running an Ethereum client inside a Docker container, you should mount a data volume as the client’s data directory (located at /root/.ethereum inside the container) to ensure that downloaded data is preserved between restarts and/or container life-cycles.
+Note, if you are running an Ethereum client inside a Docker container, you should mount a data volume as the client's data directory (located at /root/.ethereum inside the container) to ensure that downloaded data is preserved between restarts and/or container life-cycles.
 
 ## Docker quick start
 docker run -d --name ethereum-node -v "$PWD"/alice/ethereum:/root \
