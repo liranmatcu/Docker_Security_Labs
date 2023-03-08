@@ -1,6 +1,7 @@
 FROM alpine:3.7
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 22
 
