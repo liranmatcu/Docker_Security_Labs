@@ -4,9 +4,9 @@ EXPOSE 22
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update
-RUN apt-get -qq install openssh-server
-RUN apt-get -qq install krb5-user
-RUN apt-get -qq install vim tcpdump
+RUN apt-get -qq --force-yes install openssh-server
+RUN apt-get -qq --force-yes install krb5-user
+RUN apt-get -qq --force-yes install vim tcpdump
 RUN apt-get -qq clean
 
 # configuration for the SSH server
