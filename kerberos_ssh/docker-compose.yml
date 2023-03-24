@@ -1,4 +1,4 @@
-version: "3.5"
+version: "3.8"
 
 networks:
   lab:
@@ -23,7 +23,7 @@ services:
       - /dev/urandom:/dev/random
     ports:
       - "749:749"
-      - "88:88/udp"  
+      - "1088:1088/udp"
 
 
   ssh-server:

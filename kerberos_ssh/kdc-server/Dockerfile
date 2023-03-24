@@ -1,6 +1,6 @@
-FROM debian:jessie
+FROM debian:buster
 
-EXPOSE 749 88/udp
+EXPOSE 749 1088/udp
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update 

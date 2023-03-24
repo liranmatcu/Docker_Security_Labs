@@ -21,7 +21,7 @@ tee /etc/krb5.conf <<EOF
 
 [realms]
 	$REALM = {
-		kdc_ports = 88,750
+		kdc_ports = 1088,750
 		kadmind_port = 749
 		kdc = $KDC_KADMIN_SERVER
 		admin_server = $KDC_KADMIN_SERVER

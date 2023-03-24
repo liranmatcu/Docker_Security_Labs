@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:buster
 
 EXPOSE 22
 
@@ -14,6 +14,9 @@ COPY sshd_config /etc/ssh/sshd_config
 
 # configuration for the SSH client
 COPY ssh_config /etc/ssh/ssh_config 
+
+RUN mkdir /var/run/sshd
+RUN chmod 0755 /var/run/sshd
 
 # For both
 COPY krb5.conf /etc/krb5.conf
