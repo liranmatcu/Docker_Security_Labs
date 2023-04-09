@@ -13,6 +13,7 @@ services:
     build: 
       context: ./setuid
       dockerfile: Dockerfile-setuid
+      # dockerfile: Dockerfile-setuid-arm # For M1/M2 Macs
     image: setuid
     container_name: setuid-exploit
     hostname: setuid
