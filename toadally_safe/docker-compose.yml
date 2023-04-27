@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  toadally_safe:
+    image: toadally_safe_app
+    container_name: toadally_safe_app
+    build: ./
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production

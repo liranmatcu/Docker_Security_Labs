@@ -1,0 +1,269 @@
+html{
+    background-color: rgb(192, 159, 219);
+    font-family: 'VT323', monospace;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+.heading{
+    color: #844DBB;
+    font-size: 5rem;
+    align-items: center;
+    text-align: center;
+
+}
+
+.frog{
+    max-width: 100px;
+    height: 100px;
+    position: inherit;
+    opacity: .8;
+    padding-left: .5%;
+    transition-duration: 0.4s;
+}
+.frog:hover{
+    max-width: 150px;
+    height: 150px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /*padding-bottom: 5%;*/
+    font-size: 2rem;
+    padding-bottom: 5%;
+
+}
+
+#password-input{
+    background-color: #3E3E42;
+    color: #844DBB;
+    height: 2rem;
+    margin-left: .3%;
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    border:3px solid #4a2b68;
+    transition-duration: 0.4s;
+}
+#password-input:focus {
+    outline: none !important;
+    border:3px solid #844DBB;
+    box-shadow: 0 0 10px #844DBB;
+}
+
+
+#file{
+    display: none !important;
+}
+#input-label{
+    margin-left: 1%;
+    color:black;
+    background-color: #844DBB;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+
+
+}
+#input-label:hover{
+    background-color: #4a2b68;
+    color: whitesmoke;
+
+}
+
+
+
+button {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    transition-duration: 0.4s;
+    height: 2rem;
+    margin-left: .3%;
+}
+  
+button:hover {
+    background-color: #844DBB;
+    color: white;
+    border-radius: 15px;
+}
+
+
+
+.resultsAreaContainer{
+  background-color: #3E3E42;
+  font-size: 3rem;
+  color: #844DBB;
+  max-width: 100%;
+
+}
+
+.resultsAreaContainer div{
+    margin-left: 0.5%;
+    overflow-x: auto;
+}
+
+/*#stats{
+    background-color: white;
+    width: 30%;
+    
+}*/
+
+#stats{
+    margin-left: 0%;
+
+}
+
+
+.stats-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0.5%;
+    
+
+  }
+  
+  .stats-table th,
+  .stats-table td {
+    border: 1px solid #844DBB;
+    padding: 8px;
+    text-align: center;
+    transition-duration: 0.4s;
+  }
+  
+  .stats-table th {
+    background-color: #c1bdb3;
+  }
+  
+  .stats-table tr:nth-child(even) {
+    background-color: #c1bdb3;
+  }
+  
+  .stats-table td:hover {
+    background-color: #c1bdb3;
+  }
+
+ 
+
+  
+  
+  
+  .batchAreaContainer{
+    color: #844DBB;
+    font-size: 1.5rem;
+    position: relative;
+
+
+  }
+  .batchAreaContainer div{
+    overflow-x: auto;
+
+  }
+
+  .batch-results-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0.5%;
+
+
+  }
+  
+  .batch-results-table th, .batch-results-table td {
+    border: 1px solid #844DBB;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .batch-results-table th {
+    background-color: #c1bdb3;
+  }
+  
+  .batch-results-table tr:nth-child(even) {
+    background-color: #3E3E42;
+  }
+  .batch-results-table tbody tr:nth-child(odd) {
+    background-color: #4a2b68;
+  }
+  
+  .batch-results-table tbody tr{
+    transition-duration: 0.4s;
+
+  }
+  .batch-results-table tbody tr:hover {
+    background-color: #FAE8EB;
+  }
+
+#resetButton{
+  border: none;
+  color:black;
+  background-color: #844DBB;
+  font-size: 2rem;
+  height: auto;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+  margin-top: 0.5%;
+  margin-left: 0%;
+}
+  
+#resetButton:hover{
+  background-color: #4a2b68;
+  color: whitesmoke;
+
+}
+
+
+
+
+
+.crtLines{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: url(../img/lines.jpg);
+  z-index: 10;
+  background-size: 7px auto;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.1;
+  animation: moveDownAnimation 150s linear infinite;
+}
+
+@keyframes moveDownAnimation{
+    100% {
+        background-position-y: 100%;
+    }
+}
+
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../img/vignette.png);
+    z-index: 11;
+    background-size: cover;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+

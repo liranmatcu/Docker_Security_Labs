@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toadally Safe</title>
+    <link rel="icon" type="image/x-icon" href="./public/img/frog.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div class="crtLines"></div>
+    <div class="vignette"></div>
+
+    <header>
+        <h1 class="heading">Toadally_Safe</h1>
+        <img class='frog' src="img/frog.png">
+    </header>
+
+
+    <!-- zxcvbn input area vvvvv -->
+    <!--<form class='form' onsubmit="return passwordCheck()">-->
+        <!--<form class='form' method= 'POST' action="/password"> -->
+    <div class="container">
+        <label for="password-text">Enter Password:</label>
+        <!--<input type="text" class="password" name = 'password'>-->
+        <input type="text" id="password-input">
+        <!-- <button onclick = "checkPassword()">Test Strength</button>-->
+        <label id="input-label" for="file">
+            <span class="material-symbols-outlined">
+                upload
+            </span>
+            Browse for .txt
+        </label>
+        <form>
+            <input type="file" id="file" name="passwords" accept=".txt" required>
+        </form>
+    
+    </div>
+
+
+
+    <!-- zxcvbn input area ^^^^^ -->
+    
+    <div class="resultsAreaContainer">
+        <div id="passDiv">Score...</div>
+        <div id="suggestions">Suggestions...</div>
+        <div id="warnings">Warnings...</div>
+        <div id="stats"></div>
+    </div>
+    <div class="batchAreaContainer">
+        <div id="batchResultsArea"></div>
+        
+    </div>
+    <!--<div id="resultsArea">Results Area Work in Progress</div>-->
+
+    <script src="js/app.js"></script>
+</body>
+</html>
