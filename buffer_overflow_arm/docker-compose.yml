@@ -1,0 +1,10 @@
+services:
+  buffer-overflow:
+    build: ./
+    image: buffer-overflow
+    container_name: buffer-overflow
+    hostname: overflow
+    privileged: true
+    stdin_open: true
+    tty: true
+
